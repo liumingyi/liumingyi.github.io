@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Git小技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/24/Git%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="article-date">
+  <time datetime="2018-10-24T08:34:55.000Z" itemprop="datePublished">2018-10-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/24/Git%E5%B0%8F%E6%8A%80%E5%B7%A7/">Git小技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">参考资料-Git教程</a><br><a href="http://www.sitepoint.com/10-tips-git-next-level/" target="_blank" rel="noopener">参考资料-10个Git小技巧</a></p>
+<h3 id="1-合并多个commit"><a href="#1-合并多个commit" class="headerlink" title="1. 合并多个commit"></a>1. 合并多个commit</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~[number_of_commits]</span><br></pre></td></tr></table></figure>
+<p>把要合并的标记为squash （-i 表示交互）</p>
+<blockquote>
+<p>这个是我用的最多的，而且还老是记不住的。</p>
+</blockquote>
+<h3 id="2-查看仓库历史"><a href="#2-查看仓库历史" class="headerlink" title="2. 查看仓库历史"></a>2. 查看仓库历史</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --all --graph --pretty&#x3D;format:&#39;%Cred%h%Creset -%C(yellow)%d %Creset%s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit --</span><br></pre></td></tr></table></figure>
+
+<p>–all 显示所有分支的历史记录</p>
+<p>–graph 图形模式</p>
+<p>–oneline 以一行显示</p>
+<h3 id="3-查看commit历史"><a href="#3-查看commit历史" class="headerlink" title="3. 查看commit历史"></a>3. 查看commit历史</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<p>在reset –hard xxxx 以后能查看到 <strong>git log</strong> 看不到的 commit</p>
+<h3 id="4-暂存文件修改"><a href="#4-暂存文件修改" class="headerlink" title="4. 暂存文件修改"></a>4. 暂存文件修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>将修改的内容暂存起来，可以通过<strong>git stash list</strong>查看当前暂存了几个修改。</p>
+<p>工作现场恢复，有两个办法：</p>
+<p>一是用<strong>git stash apply</strong>恢复，但是恢复后，stash内容并不删除，你需要用<strong>git stash drop</strong>来删除；</p>
+<p>另一种方式是用<strong>git stash pop</strong>，恢复的同时把stash内容也删了</p>
+<h3 id="5-Cherry-Pick-（最优雅的命令）"><a href="#5-Cherry-Pick-（最优雅的命令）" class="headerlink" title="5. Cherry Pick （最优雅的命令）"></a>5. Cherry Pick （最优雅的命令）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick [commit_hash]</span><br></pre></td></tr></table></figure>
+<p>cherry-pick 可以从任意一分支中捡出一个commit，把它和当前分支合并。</p>
+<p>例如分支 A 有一个 commit ac08a6bda9f</p>
+<p>现在切换到分支B，B不方便合并分支A，但是希望拿到 A 中的 commit ac08a6bda9f。</p>
+<p>那么只需要在分支B下：git cherry-pick ac08a6bda9f</p>
+<blockquote>
+<p>大家都说这个是最优雅的Git命令</p>
+</blockquote>
+<h3 id="6-分支"><a href="#6-分支" class="headerlink" title="6. 分支"></a>6. 分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;name&gt; 创建分支</span><br><span class="line">git checkout &lt;name&gt; 切换分支</span><br><span class="line"></span><br><span class="line">git branch 查看本地所有分支</span><br><span class="line">git branch -a 查看所有远程分支</span><br><span class="line">git branch -vv 查看本地分支和与之关联的远程分支</span><br><span class="line"></span><br><span class="line">git merge &lt;name&gt; 将当前分支和name分支合并</span><br><span class="line">git branch -d &lt;name&gt; 删除分支, -D 大写表示强行删除</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-打标签"><a href="#7-打标签" class="headerlink" title="7. 打标签"></a>7. 打标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag 查看所有标签</span><br><span class="line">git tag &lt;name&gt; 新打一个标签</span><br></pre></td></tr></table></figure>
+<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a v0.1 -m &quot;version 0.1 released&quot; 3628164</span><br></pre></td></tr></table></figure>
+<p>用命令git show <tagname>可以看到说明文字</p>
+<p>还可以通过-s用私钥签名一个标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -s v0.2 -m &quot;signed version 0.2 released&quot; fec145a</span><br></pre></td></tr></table></figure>
+<p>签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gpg: signing failed: secret key not available</span><br><span class="line">error: gpg failed to sign the data</span><br><span class="line">error: unable to sign the tag</span><br></pre></td></tr></table></figure>
+<p>如果报错，请参考GnuPG帮助文档配置Key。╮(╯▽╰)╭</p>
+<p>用命令git show <tagname>可以看到PGP签名信息。</p>
+<p>标签操作:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;tagname&gt;可以推送一个本地标签</span><br><span class="line">git push origin --tags可以推送全部未推送过的本地标签</span><br><span class="line">git tag -d &lt;tagname&gt;可以删除一个本地标签</span><br><span class="line">git push origin :refs&#x2F;tags&#x2F;&lt;tagname&gt;可以删除一个远程标签</span><br></pre></td></tr></table></figure>
+<h3 id="8-补丁Patch"><a href="#8-补丁Patch" class="headerlink" title="8. 补丁Patch"></a>8. 补丁Patch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git format-patch -1</span><br></pre></td></tr></table></figure>
+<p>-1表示以HEAD指针为基准的几个commit提交打成patch,会在当前目录下生成patch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git apply 0001-test-patch.patch</span><br></pre></td></tr></table></figure>
+<p>将patch合并到当前分支</p>
+<h3 id="9-Help"><a href="#9-Help" class="headerlink" title="9. Help"></a>9. Help</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git help &lt;command&gt;</span><br></pre></td></tr></table></figure>
+<p>我为什么会把这一条列出来？ ?_? （这篇博客是2年前写的，今天无意中电脑里翻到了…）</p>
+<h3 id="10-好习惯"><a href="#10-好习惯" class="headerlink" title="10. 好习惯"></a>10. 好习惯</h3><ul>
+<li><p>COMMIT RELATED CHANGES</p>
+</li>
+<li><p>TEST CODE BEFORE YOU COMMIT</p>
+</li>
+<li><p>USE BRANCHES</p>
+</li>
+<li><p>COMMIT OFTEN</p>
+</li>
+<li><p>WRITE GOOD COMMIT MESSAGES</p>
+</li>
+<li><p>AGREE ON A WORKFLOW</p>
+</li>
+<li><p>DON‘T COMMIT HALF-DONE WORK</p>
+</li>
+<li><p>VERSION CONTROL IS NOT A BACKUP SYSTEM</p>
+</li>
+<li><p>HELP &amp; DOCUMENTATION</p>
+</li>
+<li><p>FREE ONLINE RESOURCES</p>
+</li>
+</ul>
+<p><a href="http://www.git-tower.com/learn" target="_blank" rel="noopener">http://www.git-tower.com/learn</a> </p>
+<p><a href="http://rogerdudler.github.io/git-guide/" target="_blank" rel="noopener">http://rogerdudler.github.io/git-guide/</a> </p>
+<p><a href="http://www.git-scm.org/" target="_blank" rel="noopener">http://www.git-scm.org/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/24/Git%E5%B0%8F%E6%8A%80%E5%B7%A7/" data-id="ck7mkb42d000oayvh2vdrdkih" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python-GUI-颜色选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/19/Python-GUI-%E9%A2%9C%E8%89%B2%E9%80%89%E6%8B%A9%E5%99%A8/" class="article-date">
+  <time datetime="2018-09-19T02:39:25.000Z" itemprop="datePublished">2018-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/19/Python-GUI-%E9%A2%9C%E8%89%B2%E9%80%89%E6%8B%A9%E5%99%A8/">Python-GUI-颜色选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最终效果：</p>
+<p><img src="http://wx2.sinaimg.cn/large/6eba256bgy1fveoforq2bg20yk0motim.gif" alt="点击复制颜色代码"></p>
+<p>点击颜色，即可复制颜色代码，然后在需要的地方直接 control + v 粘贴。</p>
+<hr>
+<h3 id="首先获取需要的颜色"><a href="#首先获取需要的颜色" class="headerlink" title="首先获取需要的颜色"></a>首先获取需要的颜色</h3><p>我展示的颜色源自 <a href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors" target="_blank" rel="noopener">Google Material Colors</a> （得翻墙咯）</p>
+<p>链接： <a href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors" target="_blank" rel="noopener">https://material.io/design/color/the-color-system.html#tools-for-picking-colors</a></p>
+<p>颜色很多，咋办呢，一个个复制？No！毕竟我那么懒。</p>
+<p>所以获取网页源码，然后用xPath取出来就好辣。</p>
+<p><img src="http://wx3.sinaimg.cn/mw690/6eba256bgy1fveout9cxqj20k30ak75e.jpg" alt="从HTML文件中提取颜色代码"></p>
+<blockquote>
+<p>html 是lxml中的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>之后，把颜色写入文件备用，取色过程就结束了。</p>
+<h3 id="将颜色绘制出来"><a href="#将颜色绘制出来" class="headerlink" title="将颜色绘制出来"></a>将颜色绘制出来</h3><p>这就涉及到Python GUI的知识了，这里我使用的是 tkinter</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">form tkinter <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+<p>首先配置一下主窗口和画布</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6eba256bgy1fvep79j25oj20e4064dgr.jpg" alt="初始化窗口和画布"></p>
+<blockquote>
+<p>关于 Tk()</p>
+<p>Toplevel widget of Tk which represents mostly the main window of an application.</p>
+<p>It has an associated Tcl interpreter.</p>
+<p>大意就是：窗口 ：）</p>
+<p>另外要显示出来，需要加上</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root.mainloop() </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>画布尺寸写死了，每一格的大小也写死了…</p>
+<p>画格子：</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6eba256bgy1fvepe851q4j20va04lq3h.jpg" alt="绘制颜色格子"></p>
+<p>各种乘法是计算格子的位置。</p>
+<p><strong>create_rectangle</strong> 方法中有两个参数 <strong>fill=color</strong> 和 <strong>tag=color</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color 是当前的颜色</span><br><span class="line">fill&#x3D;color 表示用此颜色填充方格</span><br><span class="line">tag&#x3D;color 设置一个Tag，值就是颜色代码。目的是为了传递颜色代码，供点击时使用。</span><br></pre></td></tr></table></figure>
+
+<p><strong>tag_bind()</strong> 这个方法是用来实现点击事件，selectColor 就是点击时调用的方法。</p>
+<p><img src="http://wx3.sinaimg.cn/mw690/6eba256bgy1fvepm87xwbj20es0473z0.jpg" alt="点击"></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root.clipboard_clear() 清空剪贴板（Tk的） </span><br><span class="line">root.clipboard_append(cell_color) 将颜色代码加入剪贴板 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>到此，功能便完成了，挺简单也挺实用的小工具，方便自己选颜色。</p>
+<h3 id="将Python脚本转换为可执行的-app文件-（Mac）"><a href="#将Python脚本转换为可执行的-app文件-（Mac）" class="headerlink" title="将Python脚本转换为可执行的.app文件 （Mac）"></a>将Python脚本转换为可执行的.app文件 （Mac）</h3><p>使用 py2app 将Python脚本转为 .app应用</p>
+<blockquote>
+<p>脚本名为：ColorGrid.py ，打开Terminal</p>
+</blockquote>
+<h4 id="1-安装py2app"><a href="#1-安装py2app" class="headerlink" title="1.安装py2app"></a>1.安装py2app</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install py2app</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-创建-setup-py-文件"><a href="#2-创建-setup-py-文件" class="headerlink" title="2.创建 setup.py 文件"></a>2.创建 setup.py 文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py2applet --make-setup ColorGrid.py</span><br></pre></td></tr></table></figure>
+
+<p>在setup.py中，OPTIONS = {} 中填入 ‘argv_emulation’: True</p>
+<p>如果有使用其他的数据文件，要在 DATA_FILES = [] 中填入。</p>
+<p>本例中使用了一个文件（color_list.txt）来读写颜色。所以如图：</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6eba256bgy1fveu1b8lzhj209603eaa5.jpg" alt="setup.py"></p>
+<h4 id="3-测一测"><a href="#3-测一测" class="headerlink" title="3.测一测"></a>3.测一测</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 setup.py py2app -A</span><br></pre></td></tr></table></figure>
+
+<p>-A 表示 alias mode，简单的理解就是测试，这个并没有生成一个独立的可运行文件，而是依赖了本机的环境。</p>
+<p>此命令后会生成 build/ ，dist/ 两个文件夹。</p>
+<p>运行一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open .&#x2F;dist&#x2F;ColorGrid.app&#x2F;Contents&#x2F;MacOS&#x2F;ColorGrid</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -a dist&#x2F;ColorGrid.app</span><br></pre></td></tr></table></figure>
+
+<p>看看运行是否成功，不成功的话，可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -a Console</span><br></pre></td></tr></table></figure>
+<p>开打Console，看看错误信息。 （虽然我是看不大懂 ：(</p>
+<h4 id="4-正式打包"><a href="#4-正式打包" class="headerlink" title="4.正式打包"></a>4.正式打包</h4><p>其实就是不加 -A。 ：）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py py2app</span><br></pre></td></tr></table></figure>
+
+<p>记得要先删除 build/ 和 dist/ </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf build dist</span><br></pre></td></tr></table></figure>
+
+<p>然后在生成的 <strong>dist/</strong> 文件夹下，双击 ColorGrid.app 即可运行。</p>
+<p>这已经是一个独立的应用，所以可以把它发给你的朋友们使用了。</p>
+<blockquote>
+<p>小插曲：</p>
+<p>在使用 py2app 转换Python脚本的时候，生成的 .app 一直运行不起来。</p>
+<p>最后找到这个<a href="https://stackoverflow.com/questions/45493029/valueerror-character-u6573552f-py2aap" target="_blank" rel="noopener">回答</a></p>
+<p>Link：<a href="https://stackoverflow.com/questions/45493029/valueerror-character-u6573552f-py2aap" target="_blank" rel="noopener">https://stackoverflow.com/questions/45493029/valueerror-character-u6573552f-py2aap</a></p>
+<p>说是 py2app 0.14 的问题，换成 0.13 就好了。</p>
+<p>而此时（2018/9/17）最新版本为 0.17 ，于是我从0.17往下尝试一直到 0.13 ，才成功。 :（</p>
+<p>I don’t know why ? ??</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 指定安装版本</span><br><span class="line">pip install py2app&#x3D;&#x3D;0.13 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><a href="https://github.com/liumingyi/ColorPick" target="_blank" rel="noopener">项目源码</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/19/Python-GUI-%E9%A2%9C%E8%89%B2%E9%80%89%E6%8B%A9%E5%99%A8/" data-id="ck7mkb42t001kayvh7jywg102" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CodeWar-Python-kyu8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/CodeWar-Python-kyu8/" class="article-date">
+  <time datetime="2018-07-09T03:24:45.000Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/09/CodeWar-Python-kyu8/">CodeWar Python kyu8 小结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.codewars.com/trainer/python" target="_blank" rel="noopener">CodeWars</a></p>
+<p>以下是我最初级（kyu8）做的几道题和一点总结，感觉自己从菜菜鸡开始升级到菜鸡了。😄</p>
+<p>给答题建了个小项目，<a href="https://github.com/liumingyi/MyCodewars_Python" target="_blank" rel="noopener">在这</a></p>
+<p>从最菜的 kyu8 -&gt; kyu7 ，做了5道题。</p>
+<p>下面是一些零碎的小知识点：</p>
+<hr>
+<h3 id="字符串-转换为-List-or-Set"><a href="#字符串-转换为-List-or-Set" class="headerlink" title="字符串 转换为 List or Set"></a>字符串 转换为 List or Set</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'xyaabbbccccdefww'</span></span><br><span class="line"></span><br><span class="line">li = list(s)</span><br><span class="line">se = set(s)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line">[<span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'a'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'b'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'c'</span>, <span class="string">'c'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'w'</span>, <span class="string">'w'</span>]</span><br><span class="line">&#123;<span class="string">'y'</span>, <span class="string">'x'</span>, <span class="string">'b'</span>, <span class="string">'f'</span>, <span class="string">'a'</span>, <span class="string">'w'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>version &gt; python3.4，可以这样写:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">li = [*s]</span><br><span class="line">se = &#123;*s&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="set-issubset-函数"><a href="#set-issubset-函数" class="headerlink" title="set.issubset() 函数"></a>set.issubset() 函数</h3><p>检查一个set是不是另一个set的子集：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">':)'</span></span><br><span class="line"></span><br><span class="line">valid = &#123;<span class="string">':'</span>, <span class="string">';'</span>, <span class="string">')'</span>, <span class="string">'D'</span>, <span class="string">'-'</span>, <span class="string">'~'</span>&#125;</span><br><span class="line"></span><br><span class="line">bol = set(s).issubset(valid)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>还有一个对应的方法：<strong>issuperset()</strong></p>
+<h3 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h3><p>内置函数：isinstance()</p>
+<p>例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">isinstance(<span class="number">5.2</span>,int)</span><br><span class="line">-&gt; False</span><br><span class="line"></span><br><span class="line">isinstance(<span class="number">5.0</span>,int)</span><br><span class="line">-&gt; False</span><br><span class="line"></span><br><span class="line">isinstance(<span class="string">'5'</span>,str)</span><br><span class="line">-&gt; True</span><br><span class="line"></span><br><span class="line">isinstance(<span class="number">4.0</span>,float)</span><br><span class="line">-&gt; True</span><br></pre></td></tr></table></figure>
+
+<p> 有一种情况，判断一个float是否有小数部分，在整除的时候可能会用到。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">4.0</span></span><br><span class="line">print(x.is_integer())</span><br><span class="line">x = <span class="number">4.1</span></span><br><span class="line">print(x.is_integer())</span><br><span class="line"></span><br><span class="line">print(</span><br><span class="line"></span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>… 未完待续</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/09/CodeWar-Python-kyu8/" data-id="ck7mkb42b000mayvhfm18fp0k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeWars/" rel="tag">CodeWars</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-MySQL命令学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/29/MySQL%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2018-06-29T06:49:30.000Z" itemprop="datePublished">2018-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/29/MySQL%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/">MySQL命令学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下基于MySQL 8.0.11</p>
+<h3 id="登录MySQL"><a href="#登录MySQL" class="headerlink" title="登录MySQL"></a>登录MySQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用账户root登录</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看所有用户"><a href="#查看所有用户" class="headerlink" title="查看所有用户"></a>查看所有用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看所有用户的host和用户名</span></span><br><span class="line"><span class="keyword">select</span> host,<span class="keyword">user</span> <span class="keyword">form</span> mysql.user;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除用户名为web，host为localhost的用户</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">user</span> <span class="string">'web'</span>@<span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户 web，host=localhost</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'web'</span>@<span class="string">'localhost'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'web'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭MySQL"><a href="#关闭MySQL" class="headerlink" title="关闭MySQL"></a>关闭MySQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server <span class="keyword">stop</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看当前连接的数据库"><a href="#查看当前连接的数据库" class="headerlink" title="查看当前连接的数据库"></a>查看当前连接的数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意有括号哦</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示所有数据库"><a href="#显示所有数据库" class="headerlink" title="显示所有数据库"></a>显示所有数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意：有s哦</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示当前数据库所有的表"><a href="#显示当前数据库所有的表" class="headerlink" title="显示当前数据库所有的表"></a>显示当前数据库所有的表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需选一个数据库先</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name(column_name column_type);</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：创建一个Users表格,属性：user_id,user_name,register_time</span></span><br><span class="line"><span class="comment"># 主键：user_id 存储引擎：InnoDB 默认编码:utf8</span></span><br><span class="line">mysql&gt; create table if not exists `users`(`user_id` INT UNSIGNED AUTO_INCREMENT,</span><br><span class="line">    -&gt; `user_name` VARCHAR(245) NOT NULL,</span><br><span class="line">    -&gt; `register_time` DATE NOT NULL,</span><br><span class="line">    -&gt; PRIMARY KEY(`user_id`))ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：上面的符号 <code>...</code> 不是单引号，是像右的点</p>
+</blockquote>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需在对应的数据库下</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入数据-INSERT-INTO"><a href="#插入数据-INSERT-INTO" class="headerlink" title="插入数据 INSERT INTO"></a>插入数据 INSERT INTO</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                       <span class="keyword">VALUES</span></span><br><span class="line">                       ( value1, value2,...valueN );</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> cars (<span class="keyword">name</span>,brand,price,oil,score) <span class="keyword">values</span> (<span class="string">"宝马7系"</span>,<span class="string">"宝马"</span>,<span class="number">72.98</span>,<span class="number">15</span>,<span class="number">4.5</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="string">`cars`</span> (<span class="string">`name`</span>,<span class="string">`brand`</span>,<span class="string">`price`</span>,<span class="string">`oil`</span>,<span class="string">`score`</span>) <span class="keyword">values</span> (<span class="string">'宝马3系'</span>,<span class="string">'宝马'</span>,<span class="string">'32.98'</span>,<span class="string">'10'</span>,<span class="string">'4.8'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询数据-SELECT…FROM…"><a href="#查询数据-SELECT…FROM…" class="headerlink" title="查询数据 SELECT…FROM…"></a>查询数据 SELECT…FROM…</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line">[<span class="keyword">LIMIT</span> N][ <span class="keyword">OFFSET</span> M]</span><br><span class="line"></span><br><span class="line"><span class="comment"># LIMIT 设定返回的记录数，OFFSET 开始查询的数据偏移量</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line"><span class="comment"># 查看所有</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> cars;</span><br><span class="line"><span class="comment"># 查看score大于4.7的车名</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>,score <span class="keyword">from</span> cars <span class="keyword">where</span> score&gt;<span class="number">4.7</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>ORDER BY子句</strong> 排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> field1, field2,...fieldN table_name1, table_name2...</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> field1, [field2...] [<span class="keyword">ASC</span> [<span class="keyword">DESC</span>]]</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from cars order by price ASC;</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">| name       | brand        | price | oil  | score |</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">| 宝马3系    | 华晨宝马     | 32.98 |   10 |   4.8 |</span><br><span class="line">| 宝马x3     | 华晨宝马     | 38.88 |   11 |   4.4 |</span><br><span class="line">| 宝马5系    | 华晨宝马     | 42.98 |   12 |   4.7 |</span><br><span class="line">| 宝马x5     | 宝马         | 72.88 |   13 |     5 |</span><br><span class="line">| 宝马7系    | 宝马         | 72.98 |   15 |   4.5 |</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">5 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="keyword">select</span> * <span class="keyword">from</span> cars <span class="keyword">order</span> <span class="keyword">by</span> price <span class="keyword">DESC</span>;</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">| name       | brand        | price | oil  | score |</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">| 宝马7系    | 宝马         | 72.98 |   15 |   4.5 |</span><br><span class="line">| 宝马x5     | 宝马         | 72.88 |   13 |     5 |</span><br><span class="line">| 宝马5系    | 华晨宝马     | 42.98 |   12 |   4.7 |</span><br><span class="line">| 宝马x3     | 华晨宝马     | 38.88 |   11 |   4.4 |</span><br><span class="line">| 宝马3系    | 华晨宝马     | 32.98 |   10 |   4.8 |</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>BINARY关键字</p>
+<p>MySQL 的 WHERE 子句的字符串比较是不区分大小写的。 你可以使用 BINARY 关键字来设定 WHERE 子句的字符串比较是区分大小写的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;mysql&gt; SELECT * from runoob_tbl WHERE BINARY runoob_author='runoob.com';</span><br><span class="line">&gt;Empty set (0.01 sec)</span><br><span class="line"></span><br><span class="line">&gt;mysql&gt; SELECT * from runoob_tbl WHERE BINARY runoob_author='RUNOOB.COM';</span><br><span class="line">+<span class="comment">-----------+---------------+---------------+-----------------+</span></span><br><span class="line">| runoob_id | runoob_title  | runoob_author | submission_date |</span><br><span class="line">+<span class="comment">-----------+---------------+---------------+-----------------+</span></span><br><span class="line">| 3         | JAVA 教程   | RUNOOB.COM    | 2016-05-06      |</span><br><span class="line">| 4         | 学习 Python | RUNOOB.COM    | 2016-03-06      |</span><br><span class="line">+<span class="comment">-----------+---------------+---------------+-----------------+</span></span><br><span class="line">2 rows in <span class="keyword">set</span> (<span class="number">0.01</span> sec)</span><br></pre></td></tr></table></figure>
+<p>例子来源：<a href="http://www.runoob.com/mysql/mysql-where-clause.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+</blockquote>
+<h3 id="ALTER命令"><a href="#ALTER命令" class="headerlink" title="ALTER命令"></a>ALTER命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改表名</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`test_lmy`</span>.<span class="string">`new_table`</span> <span class="keyword">RENAME</span> <span class="keyword">TO</span>  <span class="string">`test_lmy`</span>.<span class="string">`cars`</span> ;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改表的属性类型：</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`test_lmy`</span>.<span class="string">`cars`</span> </span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`name`</span> <span class="string">`name`</span> <span class="built_in">VARCHAR</span>(<span class="number">255</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="string">'utf8'</span> <span class="keyword">COLLATE</span> <span class="string">'utf8_unicode_ci'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> ,</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`brand`</span> <span class="string">`brand`</span> <span class="built_in">VARCHAR</span>(<span class="number">255</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="string">'utf8'</span> <span class="keyword">COLLATE</span> <span class="string">'utf8_unicode_ci'</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> ,</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`price`</span> <span class="string">`price`</span> <span class="built_in">FLOAT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> ,</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`oil`</span> <span class="string">`oil`</span> <span class="built_in">FLOAT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> ,</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`score`</span> <span class="string">`score`</span> <span class="built_in">FLOAT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="改数据-UPDATE-…-SET-…"><a href="#改数据-UPDATE-…-SET-…" class="headerlink" title="改数据 UPDATE … SET …"></a>改数据 UPDATE … SET …</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> field1=<span class="keyword">new</span>-value1, field2=<span class="keyword">new</span>-value2</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"><span class="comment"># 表cars中，价格60以下的改为华晨宝马</span></span><br><span class="line"><span class="keyword">update</span> cars <span class="keyword">set</span> brand=<span class="string">'华晨宝马'</span> <span class="keyword">where</span> price&lt;<span class="number">60</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据-DELETE-FROM"><a href="#删除数据-DELETE-FROM" class="headerlink" title="删除数据 DELETE FROM"></a>删除数据 DELETE FROM</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name [<span class="keyword">WHERE</span> Clause]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> cars <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'宝马1系'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LIKE-子句"><a href="#LIKE-子句" class="headerlink" title="LIKE 子句"></a>LIKE 子句</h3><p><a href="http://www.runoob.com/mysql/mysql-like-clause.html" target="_blank" rel="noopener">概念参考</a></p>
+<p>用来进行条件匹配，%表示任意字符，不加时效果等同于等号（=）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"><span class="comment"># 选出包含x的车型和价格，（宝马x表示越野车）</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>,price <span class="keyword">from</span> cars <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%x%'</span>;</span><br><span class="line">+<span class="comment">----------+-------+</span></span><br><span class="line">| name     | price |</span><br><span class="line">+<span class="comment">----------+-------+</span></span><br><span class="line">| 宝马x3   | 38.88 |</span><br><span class="line">| 宝马x5   | 72.88 |</span><br><span class="line">+<span class="comment">----------+-------+</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="连接的使用-JOIN"><a href="#连接的使用-JOIN" class="headerlink" title="连接的使用 JOIN"></a>连接的使用 JOIN</h3><p><a href="http://www.runoob.com/mysql/mysql-join.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/29/MySQL%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" data-id="ck7mkb42g000sayvhcdby5a6u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-XPath学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/19/XPath%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2018-06-19T06:43:22.000Z" itemprop="datePublished">2018-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/19/XPath%E5%AD%A6%E4%B9%A0/">XPath语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.w3school.com.cn/xpath/" target="_blank" rel="noopener">XPath学习资料</a></p>
+<blockquote>
+<p>以下为学习和记忆时的草稿</p>
+</blockquote>
+<h2 id="XPath语法"><a href="#XPath语法" class="headerlink" title="XPath语法"></a>XPath语法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 选取节点 : 使用路径表达式###</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最有用的路径表达式：</span></span><br><span class="line"><span class="comment"># nodename : 选取此节点的所有子节点</span></span><br><span class="line"><span class="comment"># /: 从根节点选取</span></span><br><span class="line"><span class="comment"># //: 从匹配选择的当前节点选择文档中的节点，而不考虑他们的位置。</span></span><br><span class="line"><span class="comment"># . : 选取当前节点</span></span><br><span class="line"><span class="comment"># .. : 选取当前节点的父节点</span></span><br><span class="line"><span class="comment"># @ : 选取属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line"><span class="comment"># bookstore : 选取bookstore元素的所有子节点。</span></span><br><span class="line"><span class="comment"># /bookstore : 选取根元素 bookstore。加入路径起始于斜杠(/),则此路径始终代表到某元素的绝对路径。</span></span><br><span class="line"><span class="comment"># bookstore/book : 选取属于 bookstore 的子元素的所有book元素。</span></span><br><span class="line"><span class="comment"># //book : 选取所有book子元素,而不管他们在文档中的位置。</span></span><br><span class="line"><span class="comment"># bookstore//book : 选择属于 bookstore 元素的后代的所有 book 元素,而不管他们位于 bookstore 之下的什么位置。</span></span><br><span class="line"><span class="comment"># //@lang : 选取名为 lang 的所有属性。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.谓语(Predicates) : 用来查找某个特定的节点或者包含某个指定的值的节点(被嵌在方括号中[])###</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例:</span></span><br><span class="line"><span class="comment"># /bookstore/book[1] : 选取属于 bookstore 子元素的第一个 book 元素。</span></span><br><span class="line"><span class="comment"># /bookstore/book[last] : 选取属于 bookstore 子元素的最后一个 book 元素。</span></span><br><span class="line"><span class="comment"># /bookstore/book[last() - 1] : 选取属于 bookstore 子元素的倒数第二个 book 元素。</span></span><br><span class="line"><span class="comment"># /bookstore/book[position() &lt; 3] : 选取属于 bookstore 子元素的最前面的2个 book 元素。</span></span><br><span class="line"><span class="comment"># //title[@lang] : 选取所有拥有 lang 属性的 title 元素。</span></span><br><span class="line"><span class="comment"># //title[@lang='eng'] : 选取所有拥有 lang 属性且 = 'eng' 的 title 元素。</span></span><br><span class="line"><span class="comment"># /bookstore/book[price&gt;35.00] : 选取属于 bookstore 子元素的 price &gt; 35.00 的 book 元素。</span></span><br><span class="line"><span class="comment"># /bookstore/book[price&gt;35.00]/title : 选取属于 bookstore 子元素的 price &gt; 35.00 的 book 元素的所有 title 元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.选取未知节点 : 使用通配符来选取未知的 XML 元素###</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通配符</span></span><br><span class="line"><span class="comment"># * : 匹配任何元素节点</span></span><br><span class="line"><span class="comment"># @* : 匹配任何属性节点</span></span><br><span class="line"><span class="comment"># node() : 匹配任何类型的节点</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line"><span class="comment"># /bookstore/* : 选取 bookstore 元素的所有子元素</span></span><br><span class="line"><span class="comment"># //* : 选取文档中的所有元素</span></span><br><span class="line"><span class="comment"># //title[@*] : 选取所有带属性的 title 元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.选取若干路径：在路径表达式中使用"|",可以选取若干个路径###</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line"><span class="comment"># //book/title | //book/price 选取 book 元素的所有 title 和 price 元素</span></span><br><span class="line"><span class="comment"># //title | //price 选取文档中的所有 title 和 price 元素</span></span><br><span class="line"><span class="comment"># /bookstore/book/title | //price 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h3><p>从我的GitHub主页(<a href="https://github.com/liumingyi" target="_blank" rel="noopener">https://github.com/liumingyi</a>)，选取展示的项目名称。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"></span><br><span class="line"><span class="comment"># GITHUB_URL = 'https://github.com/liumingyi'</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># result = requests.get(GITHUB_URL)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># t = result.text</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 为了方便，只做一次请求把范本保存到本地，写入文件</span></span><br><span class="line"><span class="comment"># with open('xml_test.html', 'w', encoding='utf-8') as f:</span></span><br><span class="line"><span class="comment">#     f.write(t)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从文件中读取</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'xml_test.html'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    t = f.read()</span><br><span class="line"></span><br><span class="line">tree = html.fromstring(t)</span><br><span class="line"></span><br><span class="line">li = tree.xpath(<span class="string">"//ol[@class='pinned-repos-list  mb-4 js-pinned-repos-reorder-list']"</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">sp = li.xpath(<span class="string">'//span[@class="repo js-repo"]'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> sp:</span><br><span class="line">    print(item.text)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">concurrentprogram</span><br><span class="line">assistiveTouch-android</span><br><span class="line">plateNumberKeyboard</span><br><span class="line">smiling</span><br><span class="line">distance</span><br><span class="line">python_analysis_practice</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/19/XPath%E5%AD%A6%E4%B9%A0/" data-id="ck7mkb42v001payvh5b9s0447" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XML/" rel="tag">XML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于args和kwargs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/11/%E5%85%B3%E4%BA%8Eargs%E5%92%8Ckwargs/" class="article-date">
+  <time datetime="2018-06-11T08:53:59.000Z" itemprop="datePublished">2018-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/11/%E5%85%B3%E4%BA%8Eargs%E5%92%8Ckwargs/">关于 * args 和 **kwargs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个东西看过两次居然都又忘了，所以做个笔记。</p>
+<p>所有知识来源于 <a href="https://eastlakeside.gitbooks.io/interpy-zh/content/args_kwargs/" target="_blank" rel="noopener">《Python进阶》</a> 感谢作者和译者。</p>
+<h3 id="args-和-kwargs"><a href="#args-和-kwargs" class="headerlink" title="* args 和 ** kwargs"></a>* args 和 ** kwargs</h3><p>主要是用于函数定义，将不定数量的参数传递给一个函数。</p>
+<h3 id="args-的用法-不定长的非键值对参数"><a href="#args-的用法-不定长的非键值对参数" class="headerlink" title="*args 的用法: 不定长的非键值对参数"></a>*args 的用法: 不定长的非键值对参数</h3><p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *argv)</span>:</span></span><br><span class="line">    print(<span class="string">'first normal arg:'</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> argv:</span><br><span class="line">        print(<span class="string">'another arg through *argv:'</span>, arg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'yasoob'</span>, <span class="string">'python'</span>, <span class="string">'eggs'</span>, <span class="string">'test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># first normal arg: yasoob</span></span><br><span class="line"><span class="comment"># another arg through *argv: python</span></span><br><span class="line"><span class="comment"># another arg through *argv: eggs</span></span><br><span class="line"><span class="comment"># another arg through *argv: test</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="kwargs-的用法：不定长的键值对参数"><a href="#kwargs-的用法：不定长的键值对参数" class="headerlink" title="**kwargs 的用法：不定长的键值对参数"></a>**kwargs 的用法：不定长的键值对参数</h3><p>示例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">'&#123;0&#125; == &#123;1&#125;'</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">greet_me(liu=<span class="number">1</span>, ming=<span class="number">2</span>, yi=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># liu == 1</span></span><br><span class="line"><span class="comment"># ming == 2</span></span><br><span class="line"><span class="comment"># yi == 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-args-和-kwargs-来调用函数"><a href="#使用-args-和-kwargs-来调用函数" class="headerlink" title="使用 * args 和 ** kwargs 来调用函数"></a>使用 * args 和 ** kwargs 来调用函数</h3><p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">'arg0:'</span>, arg1)</span><br><span class="line">    print(<span class="string">'arg1:'</span>, arg2)</span><br><span class="line">    print(<span class="string">'arg2:'</span>, arg3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">args = (<span class="string">'two'</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">test_args_kwargs(*args)</span><br><span class="line"></span><br><span class="line">print(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">kwargs = &#123;<span class="string">'arg3'</span>: <span class="number">3</span>, <span class="string">'arg2'</span>: <span class="string">'two'</span>, <span class="string">'arg1'</span>: <span class="number">1</span>&#125;</span><br><span class="line">test_args_kwargs(**kwargs)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="comment"># arg0: two</span></span><br><span class="line"><span class="comment"># arg1: 3</span></span><br><span class="line"><span class="comment"># arg2: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># arg0: 1</span></span><br><span class="line"><span class="comment"># arg1: two</span></span><br><span class="line"><span class="comment"># arg2: 3</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：使用 **kwargs 时，传入的dict中的键要与函数中的参数名相匹配</p>
+<h3 id="何时使用它们"><a href="#何时使用它们" class="headerlink" title="何时使用它们"></a>何时使用它们</h3><p>1.猴子补丁（monkey patching):在程序运行时（runtime）修改某些代码。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> someclass</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_info</span><span class="params">(self, *args)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Test data"</span></span><br><span class="line"></span><br><span class="line">someclass.get_info = get_info</span><br></pre></td></tr></table></figure>
+
+<p>2.写装饰器的时候，可参见 <a href="/2018/06/11/Python中的装饰器/">Python中的装饰器</a></p>
+<p>3.将函数需要的多个参数，以元组或数组的方式传入。</p>
+<p>…等等</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/11/%E5%85%B3%E4%BA%8Eargs%E5%92%8Ckwargs/" data-id="ck7mkb42y001vayvhc8rz6j3s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python中的装饰器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/11/Python%E4%B8%AD%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/" class="article-date">
+  <time datetime="2018-06-11T08:53:39.000Z" itemprop="datePublished">2018-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/11/Python%E4%B8%AD%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/">Python中的装饰器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://eastlakeside.gitbooks.io/interpy-zh/content/args_kwargs/" target="_blank" rel="noopener">《Python进阶》</a></p>
+<h3 id="装饰器（Decorator）：修改其他函数的功能的函数"><a href="#装饰器（Decorator）：修改其他函数的功能的函数" class="headerlink" title="装饰器（Decorator）：修改其他函数的功能的函数"></a>装饰器（Decorator）：修改其他函数的功能的函数</h3><p>就像<a href="/2018/03/13/3-装饰者模式/">装饰者模式</a>（动态的将责任附加到对象上）</p>
+<p>Python中的装饰器可以动态的修改函数的功能。</p>
+<blockquote>
+<p>Python中一切皆对象。</p>
+<p>比如：</p>
+<p>可以将一个函数赋值给一个变量。函数名后面不加括号就不会调用该函数，就可以将它放在一个变量中进行传递。</p>
+<p>在被赋值的变量后加上括号，则可以调用赋值函数，哪怕原函数被del（删除）掉，依然可以通过变量+（）调用。</p>
+</blockquote>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"yasoob"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi "</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># output: 'hi yasoob'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们甚至可以将一个函数赋值给一个变量，比如</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们这里没有在使用小括号，因为我们并不是在调用hi函数</span></span><br><span class="line"><span class="comment"># 而是在将它放在greet变量里头。我们尝试运行下这个</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># output: 'hi yasoob'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果我们删掉旧的hi函数，看看会发生什么！</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment">#outputs: NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment">#outputs: 'hi yasoob'</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Python中，函数中还可以嵌套函数。</p>
+<p>函数还可以返回一个函数。</p>
+</blockquote>
+<h3 id="装饰器示例"><a href="#装饰器示例" class="headerlink" title="装饰器示例"></a>装饰器示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logit</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">with_logging</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        print(func.__name__ + <span class="string">" was called"</span>)</span><br><span class="line">        <span class="keyword">return</span> func(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> with_logging</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addition_func</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">"""Do some math."""</span></span><br><span class="line">    print(<span class="string">'result = &#123;0&#125;'</span>.format(x + x))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">addition_func(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># result = 8</span></span><br><span class="line"></span><br><span class="line">addition_func = logit(addition_func)</span><br><span class="line"></span><br><span class="line">addition_func(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># addition_func was called</span></span><br><span class="line"><span class="comment"># result = 8</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="注解的使用"><a href="#注解的使用" class="headerlink" title="注解的使用"></a>注解的使用</h3><p>针对上面的示例使用相关注解来简化代码，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logit</span><span class="params">(func)</span>:</span></span><br><span class="line"><span class="meta">    @wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">with_logging</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        print(func.__name__ + <span class="string">" was called"</span>)</span><br><span class="line">        <span class="keyword">return</span> func(*args, **kwargs)</span><br><span class="line">    <span class="keyword">return</span> with_logging</span><br><span class="line"></span><br><span class="line"><span class="meta">@logit</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addition_func</span><span class="params">(x)</span>:</span></span><br><span class="line">   <span class="string">"""Do some math."""</span></span><br><span class="line">   <span class="keyword">return</span> x + x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = addition_func(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># Output: addition_func was called</span></span><br></pre></td></tr></table></figure>
+
+<p>@wraps 标注装饰器函数。</p>
+<p>@logit 这个是包含装饰器函数的函数的名字，自己定义的。</p>
+<h3 id="带参数的装饰器"><a href="#带参数的装饰器" class="headerlink" title="带参数的装饰器"></a>带参数的装饰器</h3><p>需要在添加一个包裹函数。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logit</span><span class="params">(logfile=<span class="string">'out.log'</span>)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">logging_decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"><span class="meta">        @wraps(func)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapped_function</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            log_string = func.__name__ + <span class="string">" was called"</span></span><br><span class="line">            print(log_string)</span><br><span class="line">            <span class="comment"># 打开logfile，并写入内容</span></span><br><span class="line">            <span class="keyword">with</span> open(logfile, <span class="string">'a'</span>) <span class="keyword">as</span> opened_file:</span><br><span class="line">                <span class="comment"># 现在将日志打到指定的logfile</span></span><br><span class="line">                opened_file.write(log_string + <span class="string">'\n'</span>)</span><br><span class="line">            <span class="keyword">return</span> func(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> wrapped_function</span><br><span class="line">    <span class="keyword">return</span> logging_decorator</span><br><span class="line"></span><br><span class="line"><span class="meta">@logit()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">myfunc1()</span><br><span class="line"><span class="comment"># Output: myfunc1 was called</span></span><br><span class="line"><span class="comment"># 现在一个叫做 out.log 的文件出现了，里面的内容就是上面的字符串</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@logit(logfile='func2.log')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">myfunc2()</span><br><span class="line"><span class="comment"># Output: myfunc2 was called</span></span><br><span class="line"><span class="comment"># 现在一个叫做 func2.log 的文件出现了，里面的内容就是上面的字符串</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="装饰器类"><a href="#装饰器类" class="headerlink" title="装饰器类"></a>装饰器类</h3><p><a href="http://www.runoob.com/python3/python3-class.html" target="_blank" rel="noopener">关于Python的类</a></p>
+<p>装饰器类示例：</p>
+<p>其实就是用类名代替包裹函数的名字进行标注，这样能利用继承提供更好的扩展性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">logit</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, logfile=<span class="string">'out.log'</span>)</span>:</span></span><br><span class="line">        self.logfile = logfile</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, func)</span>:</span></span><br><span class="line"><span class="meta">        @wraps(func)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapped_function</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            log_string = func.__name__ + <span class="string">' was called'</span></span><br><span class="line">            print(log_string)</span><br><span class="line">            <span class="keyword">with</span> open(self.logfile, <span class="string">'a'</span>) <span class="keyword">as</span> opened_file:</span><br><span class="line">                opened_file.write(log_string + <span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">            self.notify(func.__name__)</span><br><span class="line">            <span class="keyword">return</span> func(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> wrapped_function</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">notify</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@logit()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 子类，额外提供Email功能</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">email_logit</span><span class="params">(logit)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, email=<span class="string">'admin@gg.com'</span>, *args, **kwargs)</span>:</span></span><br><span class="line">        self.email = email</span><br><span class="line">        super(email_logit, self).__init__(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">notify</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        print(name + <span class="string">" Email 已发送"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@email_logit()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">myfunc1()</span><br><span class="line"></span><br><span class="line">myfunc2()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># myfunc1 was called</span></span><br><span class="line"><span class="comment"># myfunc2 was called</span></span><br><span class="line"><span class="comment"># myfunc2 Email 已发送</span></span><br><span class="line"><span class="comment"># 同时生成了一个out.log文件</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/11/Python%E4%B8%AD%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/" data-id="ck7mkb42u001nayvhbliv17nk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Pandas使用过程中遇到的问题汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/04/Pandas%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="article-date">
+  <time datetime="2018-06-04T07:06:22.000Z" itemprop="datePublished">2018-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/04/Pandas%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">Pandas使用过程中遇到的问题汇总</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Series-转为-DataFrame"><a href="#Series-转为-DataFrame" class="headerlink" title="Series 转为 DataFrame ?"></a>Series 转为 DataFrame ?</h3><p>我有一个Series如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Vegetables <span class="keyword">and</span> Vegetable Products    <span class="number">812</span></span><br><span class="line">Beef Products                        <span class="number">618</span></span><br><span class="line">Baked Products                       <span class="number">496</span></span><br><span class="line">Breakfast Cereals                    <span class="number">403</span></span><br><span class="line">Legumes <span class="keyword">and</span> Legume Products          <span class="number">365</span></span><br><span class="line">Fast Foods                           <span class="number">365</span></span><br><span class="line">Lamb, Veal, <span class="keyword">and</span> Game Products        <span class="number">345</span></span><br><span class="line">Sweets                               <span class="number">341</span></span><br><span class="line">Fruits <span class="keyword">and</span> Fruit Juices              <span class="number">328</span></span><br><span class="line">Pork Products                        <span class="number">328</span></span><br><span class="line">Beverages                            <span class="number">278</span></span><br><span class="line">Soups, Sauces, <span class="keyword">and</span> Gravies           <span class="number">275</span></span><br><span class="line">Finfish <span class="keyword">and</span> Shellfish Products       <span class="number">255</span></span><br><span class="line">Baby Foods                           <span class="number">209</span></span><br><span class="line">Cereal Grains <span class="keyword">and</span> Pasta              <span class="number">183</span></span><br><span class="line">Ethnic Foods                         <span class="number">165</span></span><br><span class="line">Snacks                               <span class="number">162</span></span><br><span class="line">Nut <span class="keyword">and</span> Seed Products                <span class="number">128</span></span><br><span class="line">Poultry Products                     <span class="number">116</span></span><br><span class="line">Sausages <span class="keyword">and</span> Luncheon Meats          <span class="number">111</span></span><br><span class="line">Dairy <span class="keyword">and</span> Egg Products               <span class="number">107</span></span><br><span class="line">Fats <span class="keyword">and</span> Oils                         <span class="number">97</span></span><br><span class="line">Meals, Entrees, <span class="keyword">and</span> Sidedishes        <span class="number">57</span></span><br><span class="line">Restaurant Foods                      <span class="number">51</span></span><br><span class="line">Spices <span class="keyword">and</span> Herbs                      <span class="number">41</span></span><br><span class="line">Name: group, dtype: int64</span><br></pre></td></tr></table></figure>
+
+<p>我希望同时给他添上序号，以及每一列的含义。</p>
+<p>可以这样做：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># group_counts 就是上面那个Series，长度为25</span></span><br><span class="line"></span><br><span class="line">df = group_counts.to_frame().reset_index() <span class="comment"># 重置index，0 ~ 24</span></span><br><span class="line">df.columns = [<span class="string">'group'</span>, <span class="string">'count'</span>] <span class="comment"># 指定每列描述</span></span><br><span class="line">df.index = np.arange(<span class="number">1</span>, <span class="number">26</span>) <span class="comment"># 指定index，从1开始到25</span></span><br><span class="line"></span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line"><span class="comment">##输出：</span></span><br><span class="line">                                Group  Count</span><br><span class="line"><span class="number">1</span>   Vegetables <span class="keyword">and</span> Vegetable Products    <span class="number">812</span></span><br><span class="line"><span class="number">2</span>                       Beef Products    <span class="number">618</span></span><br><span class="line"><span class="number">3</span>                      Baked Products    <span class="number">496</span></span><br><span class="line"><span class="number">4</span>                   Breakfast Cereals    <span class="number">403</span></span><br><span class="line"><span class="number">5</span>                          Fast Foods    <span class="number">365</span></span><br><span class="line"><span class="number">6</span>         Legumes <span class="keyword">and</span> Legume Products    <span class="number">365</span></span><br><span class="line"><span class="number">7</span>       Lamb, Veal, <span class="keyword">and</span> Game Products    <span class="number">345</span></span><br><span class="line"><span class="number">8</span>                              Sweets    <span class="number">341</span></span><br><span class="line"><span class="number">9</span>                       Pork Products    <span class="number">328</span></span><br><span class="line"><span class="number">10</span>            Fruits <span class="keyword">and</span> Fruit Juices    <span class="number">328</span></span><br><span class="line"><span class="number">11</span>                          Beverages    <span class="number">278</span></span><br><span class="line"><span class="number">12</span>         Soups, Sauces, <span class="keyword">and</span> Gravies    <span class="number">275</span></span><br><span class="line"><span class="number">13</span>     Finfish <span class="keyword">and</span> Shellfish Products    <span class="number">255</span></span><br><span class="line"><span class="number">14</span>                         Baby Foods    <span class="number">209</span></span><br><span class="line"><span class="number">15</span>            Cereal Grains <span class="keyword">and</span> Pasta    <span class="number">183</span></span><br><span class="line"><span class="number">16</span>                       Ethnic Foods    <span class="number">165</span></span><br><span class="line"><span class="number">17</span>                             Snacks    <span class="number">162</span></span><br><span class="line"><span class="number">18</span>              Nut <span class="keyword">and</span> Seed Products    <span class="number">128</span></span><br><span class="line"><span class="number">19</span>                   Poultry Products    <span class="number">116</span></span><br><span class="line"><span class="number">20</span>        Sausages <span class="keyword">and</span> Luncheon Meats    <span class="number">111</span></span><br><span class="line"><span class="number">21</span>             Dairy <span class="keyword">and</span> Egg Products    <span class="number">107</span></span><br><span class="line"><span class="number">22</span>                      Fats <span class="keyword">and</span> Oils     <span class="number">97</span></span><br><span class="line"><span class="number">23</span>     Meals, Entrees, <span class="keyword">and</span> Sidedishes     <span class="number">57</span></span><br><span class="line"><span class="number">24</span>                   Restaurant Foods     <span class="number">51</span></span><br><span class="line"><span class="number">25</span>                   Spices <span class="keyword">and</span> Herbs     <span class="number">41</span></span><br></pre></td></tr></table></figure>
+
+<p>或者这样做：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df = DataFrame(&#123;<span class="string">'Group'</span>: group_counts.index, <span class="string">'Count'</span>: group_counts.values&#125;,</span><br><span class="line">               index=np.arange(<span class="number">1</span>, <span class="number">1</span> + len(group_counts)),</span><br><span class="line">               columns=[<span class="string">'Group'</span>, <span class="string">'Count'</span>])</span><br><span class="line"></span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line"><span class="comment">##输出： 和上面一样的</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/04/Pandas%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" data-id="ck7mkb42n0017ayvh4gpe2dbz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">Python数据分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-层次化索引-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/14/%E5%B1%82%E6%AC%A1%E5%8C%96%E7%B4%A2%E5%BC%95-2/" class="article-date">
+  <time datetime="2018-05-14T03:51:34.000Z" itemprop="datePublished">2018-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/%E5%B1%82%E6%AC%A1%E5%8C%96%E7%B4%A2%E5%BC%95-2/">层次化索引(2)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考资料：</p>
+<p><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.xs.html" target="_blank" rel="noopener">xs()方法</a></p>
+<p><a href="http://pandas.pydata.org/pandas-docs/stable/advanced.html#advanced-mi-slicers" target="_blank" rel="noopener">MutiIndex / Advanced Indexing</a></p>
+<p>先阐述一下上一篇遗留的问题。</p>
+<p>有一个DataFrame:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">data = DataFrame(np.arange(<span class="number">48</span>).reshape(<span class="number">8</span>, <span class="number">6</span>),</span><br><span class="line">                 columns=[list(<span class="string">'xxxyyz'</span>), [<span class="string">'M'</span>, <span class="string">'M'</span>, <span class="string">'N'</span>, <span class="string">'N'</span>, <span class="string">'M'</span>, <span class="string">'N'</span>]],</span><br><span class="line">                 index=[list(<span class="string">'AAABBCCD'</span>), list(<span class="string">'abbabcba'</span>)])</span><br><span class="line"></span><br><span class="line">data.index.names = [<span class="string">'key1'</span>, <span class="string">'key2'</span>]</span><br><span class="line">data.columns.names = [<span class="string">'state1'</span>, <span class="string">'state2'</span>]</span><br><span class="line"></span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line">state1      x           y       z</span><br><span class="line">state2      M   M   N   N   M   N</span><br><span class="line">key1 key2                        </span><br><span class="line">A    a      <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span>   <span class="number">5</span></span><br><span class="line">     b      <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span></span><br><span class="line">B    a     <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span>  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span></span><br><span class="line">     b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">26</span>  <span class="number">27</span>  <span class="number">28</span>  <span class="number">29</span></span><br><span class="line">C    c     <span class="number">30</span>  <span class="number">31</span>  <span class="number">32</span>  <span class="number">33</span>  <span class="number">34</span>  <span class="number">35</span></span><br><span class="line">     b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">38</span>  <span class="number">39</span>  <span class="number">40</span>  <span class="number">41</span></span><br><span class="line">D    a     <span class="number">42</span>  <span class="number">43</span>  <span class="number">44</span>  <span class="number">45</span>  <span class="number">46</span>  <span class="number">47</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="问题：通过内层index取行或列。"><a href="#问题：通过内层index取行或列。" class="headerlink" title="问题：通过内层index取行或列。"></a>问题：通过内层index取行或列。</h3><p>常规的取法，例如 data[‘a’] 是不行的。</p>
+<p><strong>此时，可以使用 xs() 方法。</strong></p>
+<blockquote>
+<p><strong>DataFrame.xs(key, axis=0, level=None, drop_level=True)</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>从 Series/DataFrame 返回一个截面（行 或 列）</strong></p>
+</blockquote>
+<h3 id="1-例：取出所有-‘b’标签-的行。"><a href="#1-例：取出所有-‘b’标签-的行。" class="headerlink" title="1. 例：取出所有 ‘b’标签 的行。"></a>1. 例：取出所有 ‘b’标签 的行。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 'b'标签的level是1。</span></span><br><span class="line">data.xs(<span class="string">'b'</span>, level=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">state1   x           y       z</span><br><span class="line">state2   M   M   N   N   M   N</span><br><span class="line">key1                          </span><br><span class="line">A        <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span> </span><br><span class="line">A       <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span></span><br><span class="line">B       <span class="number">24</span>  <span class="number">25</span>  <span class="number">26</span>  <span class="number">27</span>  <span class="number">28</span>  <span class="number">29</span></span><br><span class="line">C       <span class="number">36</span>  <span class="number">37</span>  <span class="number">38</span>  <span class="number">39</span>  <span class="number">40</span>  <span class="number">41</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-例：取出所有-‘N’标签下的-列。"><a href="#2-例：取出所有-‘N’标签下的-列。" class="headerlink" title="2. 例：取出所有 ‘N’标签下的 列。"></a>2. 例：取出所有 ‘N’标签下的 列。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data.xs(<span class="string">'N'</span>, axis=<span class="number">1</span>, level=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">state1      x   x   y</span><br><span class="line">key1 key2            </span><br><span class="line">A    a      <span class="number">0</span>   <span class="number">1</span>   <span class="number">4</span></span><br><span class="line">     b      <span class="number">6</span>   <span class="number">7</span>  <span class="number">10</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">16</span></span><br><span class="line">B    a     <span class="number">18</span>  <span class="number">19</span>  <span class="number">22</span></span><br><span class="line">     b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">28</span></span><br><span class="line">C    c     <span class="number">30</span>  <span class="number">31</span>  <span class="number">34</span></span><br><span class="line">     b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">40</span></span><br><span class="line">D    a     <span class="number">42</span>  <span class="number">43</span>  <span class="number">46</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="取值器（-loc）"><a href="#取值器（-loc）" class="headerlink" title="取值器（.loc）"></a>取值器（.loc）</h3><h3 id="1-例：取出所有-‘b’标签的-行。"><a href="#1-例：取出所有-‘b’标签的-行。" class="headerlink" title="1. 例：取出所有 ‘b’标签的 行。"></a>1. 例：取出所有 ‘b’标签的 行。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data.loc[(slice(<span class="literal">None</span>), <span class="string">'b'</span>), :]</span><br><span class="line"></span><br><span class="line">state1      x           y       z</span><br><span class="line">state2      M   M   N   N   M   N</span><br><span class="line">key1 key2                        </span><br><span class="line">A    b      <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span></span><br><span class="line">B    b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">26</span>  <span class="number">27</span>  <span class="number">28</span>  <span class="number">29</span></span><br><span class="line">C    b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">38</span>  <span class="number">39</span>  <span class="number">40</span>  <span class="number">41</span></span><br></pre></td></tr></table></figure>
+
+<p>解释： loc[]中 ，中括号内最外层的逗号（<strong>“…)，:]”</strong>）前表示 index选择，逗号后表示 columns选择。</p>
+<p>逗号前的括号里表示的意思：slice(None) 对应level0标签的选择，’b’ 对应的是level1标签的选择，如果还有标签，以此类推。</p>
+<p>slice(None) 表示切片，参数None，意思是啥都不切，就好像通常使用的冒号（：）一样。</p>
+<p>另外还可以这样写:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data.loc(axis=<span class="number">0</span>)[:, <span class="string">'b'</span>]  <span class="comment"># 指定了 axis=0，就不要写 columns的冒号(:)了。</span></span><br><span class="line"></span><br><span class="line">state1      x           y       z</span><br><span class="line">state2      M   M   N   N   M   N</span><br><span class="line">key1 key2                        </span><br><span class="line">A    b      <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span></span><br><span class="line">B    b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">26</span>  <span class="number">27</span>  <span class="number">28</span>  <span class="number">29</span></span><br><span class="line">C    b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">38</span>  <span class="number">39</span>  <span class="number">40</span>  <span class="number">41</span></span><br></pre></td></tr></table></figure>
+
+<p>另另外还可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">idx = pd.IndexSlice</span><br><span class="line">data.loc[idx[:, <span class="string">'b'</span>], :]</span><br><span class="line"></span><br><span class="line">state1      x           y       z</span><br><span class="line">state2      M   M   N   N   M   N</span><br><span class="line">key1 key2                        </span><br><span class="line">A    b      <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span></span><br><span class="line">B    b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">26</span>  <span class="number">27</span>  <span class="number">28</span>  <span class="number">29</span></span><br><span class="line">C    b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">38</span>  <span class="number">39</span>  <span class="number">40</span>  <span class="number">41</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-例：取出所有-‘M’标签的-列。（与取行方式一致）"><a href="#2-例：取出所有-‘M’标签的-列。（与取行方式一致）" class="headerlink" title="2. 例：取出所有 ‘M’标签的 列。（与取行方式一致）"></a>2. 例：取出所有 ‘M’标签的 列。（与取行方式一致）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">data.loc(axis=<span class="number">1</span>)[:, <span class="string">'M'</span>]</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">data.loc[:, (slice(<span class="literal">None</span>), <span class="string">'M'</span>)]</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">data.loc[:, idx[:, <span class="string">'M'</span>]]</span><br><span class="line"></span><br><span class="line">state1      x       y</span><br><span class="line">state2      M   M   M</span><br><span class="line">key1 key2            </span><br><span class="line">A    a      <span class="number">0</span>   <span class="number">1</span>   <span class="number">4</span></span><br><span class="line">     b      <span class="number">6</span>   <span class="number">7</span>  <span class="number">10</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">16</span></span><br><span class="line">B    a     <span class="number">18</span>  <span class="number">19</span>  <span class="number">22</span></span><br><span class="line">     b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">28</span></span><br><span class="line">C    c     <span class="number">30</span>  <span class="number">31</span>  <span class="number">34</span></span><br><span class="line">     b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">40</span></span><br><span class="line">D    a     <span class="number">42</span>  <span class="number">43</span>  <span class="number">46</span></span><br></pre></td></tr></table></figure>
+
+<p>个人觉得 xs() 方法挺好 ：）</p>
+<h3 id="练习：取出index标签’A’和’C’下标签’b’对应的columns标签’x’和’z’下的’N’标签的项。"><a href="#练习：取出index标签’A’和’C’下标签’b’对应的columns标签’x’和’z’下的’N’标签的项。" class="headerlink" title="练习：取出index标签’A’和’C’下标签’b’对应的columns标签’x’和’z’下的’N’标签的项。"></a>练习：取出index标签’A’和’C’下标签’b’对应的columns标签’x’和’z’下的’N’标签的项。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data.loc[([<span class="string">'A'</span>, <span class="string">'C'</span>], <span class="string">'b'</span>), ([<span class="string">'x'</span>, <span class="string">'z'</span>], <span class="string">'N'</span>)]</span><br><span class="line"></span><br><span class="line">state1      x   z</span><br><span class="line">state2      N   N</span><br><span class="line">key1 key2        </span><br><span class="line">A    b      <span class="number">8</span>  <span class="number">11</span></span><br><span class="line">     b     <span class="number">14</span>  <span class="number">17</span></span><br><span class="line">C    b     <span class="number">38</span>  <span class="number">41</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong>xs()</strong> 方法返回的是一个 <strong>副本（copy）</strong>，所以不会对源数据有影响。</p>
+<p>而！而！而！</p>
+<p><strong>loc()</strong> 返回的是 <strong>源数据视图</strong>，任何修改都会反映到源数据上。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">data = DataFrame(np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>, <span class="number">4</span>), index=list(<span class="string">'abc'</span>)</span><br><span class="line">                 , columns=list(<span class="string">'ABCD'</span>))</span><br><span class="line"></span><br><span class="line">data.xs(<span class="string">'a'</span>)[<span class="string">'B'</span>] = NaN</span><br><span class="line"></span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line">   A  B   C   D</span><br><span class="line">a  <span class="number">0</span>  <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span></span><br><span class="line">b  <span class="number">4</span>  <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span></span><br><span class="line">c  <span class="number">8</span>  <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 但是</span></span><br><span class="line">data.loc[<span class="string">'a'</span>, <span class="string">'B'</span>] = NaN</span><br><span class="line"></span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line">   A    B   C   D</span><br><span class="line">a  <span class="number">0</span>  NaN   <span class="number">2</span>   <span class="number">3</span></span><br><span class="line">b  <span class="number">4</span>  <span class="number">5.0</span>   <span class="number">6</span>   <span class="number">7</span></span><br><span class="line">c  <span class="number">8</span>  <span class="number">9.0</span>  <span class="number">10</span>  <span class="number">11</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/14/%E5%B1%82%E6%AC%A1%E5%8C%96%E7%B4%A2%E5%BC%95-2/" data-id="ck7mkb42y001xayvh2k5lbwfa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">Python数据分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-层次化索引" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/10/%E5%B1%82%E6%AC%A1%E5%8C%96%E7%B4%A2%E5%BC%95/" class="article-date">
+  <time datetime="2018-05-10T07:51:06.000Z" itemprop="datePublished">2018-05-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/10/%E5%B1%82%E6%AC%A1%E5%8C%96%E7%B4%A2%E5%BC%95/">层次化索引(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="层次化索引：能在一个轴上拥有多个（两个以上）索引级别。"><a href="#层次化索引：能在一个轴上拥有多个（两个以上）索引级别。" class="headerlink" title="层次化索引：能在一个轴上拥有多个（两个以上）索引级别。"></a>层次化索引：能在一个轴上拥有多个（两个以上）索引级别。</h3><h3 id="Series-举例："><a href="#Series-举例：" class="headerlink" title="Series 举例："></a>Series 举例：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">obj = Series(np.random.randn(<span class="number">10</span>),</span><br><span class="line">             index=[list(<span class="string">'aaabbbccdd'</span>), [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line">print(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">a  <span class="number">1</span>    <span class="number">0.400128</span></span><br><span class="line">   <span class="number">2</span>   <span class="number">-0.168083</span></span><br><span class="line">   <span class="number">3</span>    <span class="number">0.948829</span></span><br><span class="line">b  <span class="number">1</span>   <span class="number">-0.220562</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.252248</span></span><br><span class="line">   <span class="number">3</span>    <span class="number">0.719485</span></span><br><span class="line">c  <span class="number">1</span>    <span class="number">1.084889</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.946053</span></span><br><span class="line">d  <span class="number">2</span>   <span class="number">-0.981862</span></span><br><span class="line">   <span class="number">3</span>    <span class="number">0.973724</span></span><br><span class="line"></span><br><span class="line">---------------------------------</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再加一组</span></span><br><span class="line">obj = Series(np.random.randn(<span class="number">10</span>),</span><br><span class="line">             index=[list(<span class="string">'aaabbbccdd'</span>),</span><br><span class="line">                    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">                    list(<span class="string">'mankmanknm'</span>)])</span><br><span class="line">print(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">a  <span class="number">1</span>  m    <span class="number">0.520132</span></span><br><span class="line">   <span class="number">2</span>  a    <span class="number">0.622041</span></span><br><span class="line">   <span class="number">3</span>  n    <span class="number">1.056768</span></span><br><span class="line">b  <span class="number">1</span>  k   <span class="number">-1.599427</span></span><br><span class="line">   <span class="number">2</span>  m    <span class="number">2.762476</span></span><br><span class="line">   <span class="number">3</span>  a   <span class="number">-1.070517</span></span><br><span class="line">c  <span class="number">1</span>  n   <span class="number">-0.633653</span></span><br><span class="line">   <span class="number">2</span>  k   <span class="number">-0.563570</span></span><br><span class="line">d  <span class="number">2</span>  n   <span class="number">-1.633940</span></span><br><span class="line">   <span class="number">3</span>  m   <span class="number">-1.618936</span></span><br></pre></td></tr></table></figure>
+
+<p>提取值。</p>
+<p>例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">10</span>)</span><br><span class="line">obj = Series(np.random.randn(<span class="number">10</span>),</span><br><span class="line">             index=[list(<span class="string">'aaabbbccdd'</span>),</span><br><span class="line">                    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line">                    </span><br><span class="line">obj</span><br><span class="line">a  <span class="number">1</span>    <span class="number">1.331587</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.715279</span></span><br><span class="line">   <span class="number">2</span>   <span class="number">-1.545400</span></span><br><span class="line">b  <span class="number">1</span>   <span class="number">-0.008384</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.621336</span></span><br><span class="line">   <span class="number">3</span>   <span class="number">-0.720086</span></span><br><span class="line">c  <span class="number">1</span>    <span class="number">0.265512</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.108549</span></span><br><span class="line">d  <span class="number">2</span>    <span class="number">0.004291</span></span><br><span class="line">   <span class="number">3</span>   <span class="number">-0.174600</span></span><br></pre></td></tr></table></figure>
+
+<p>1 . 取索引 ‘a’ 对应的项：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="string">'a'</span>]</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>    <span class="number">1.331587</span></span><br><span class="line"><span class="number">2</span>    <span class="number">0.715279</span></span><br><span class="line"><span class="number">2</span>   <span class="number">-1.545400</span></span><br></pre></td></tr></table></figure>
+
+<p>2 . 取索引 ‘a’ 到 ‘c’ 的项 （切片）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="string">'a'</span> : <span class="string">'c'</span>]</span><br><span class="line"></span><br><span class="line">a  <span class="number">1</span>    <span class="number">1.331587</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.715279</span></span><br><span class="line">   <span class="number">2</span>   <span class="number">-1.545400</span></span><br><span class="line">b  <span class="number">1</span>   <span class="number">-0.008384</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.621336</span></span><br><span class="line">   <span class="number">3</span>   <span class="number">-0.720086</span></span><br><span class="line">c  <span class="number">1</span>    <span class="number">0.265512</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.108549</span></span><br></pre></td></tr></table></figure>
+
+<p>3 . 取索引 ‘a’ 和 ‘c’ 的项 （多选）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">obj[[<span class="string">'a'</span>, <span class="string">'c'</span>]]  或者  obj.ix[[<span class="string">'a'</span>, <span class="string">'c'</span>]]</span><br><span class="line"></span><br><span class="line">a  <span class="number">1</span>    <span class="number">1.331587</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.715279</span></span><br><span class="line">   <span class="number">2</span>   <span class="number">-1.545400</span></span><br><span class="line">c  <span class="number">1</span>    <span class="number">0.265512</span></span><br><span class="line">   <span class="number">2</span>    <span class="number">0.108549</span></span><br></pre></td></tr></table></figure>
+
+<p>4 . 取所有 内层索引为 2 的项：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">obj[:, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">a    <span class="number">0.715279</span></span><br><span class="line">a   <span class="number">-1.545400</span></span><br><span class="line">b    <span class="number">0.621336</span></span><br><span class="line">c    <span class="number">0.108549</span></span><br><span class="line">d    <span class="number">0.004291</span></span><br></pre></td></tr></table></figure>
+
+<p>5 . 内层 外层 结合起来</p>
+<p>取外层索引 ‘a’ 下，内层索引为 2 的项：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="string">'a'</span>][<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>    <span class="number">0.715279</span></span><br><span class="line"><span class="number">2</span>   <span class="number">-1.545400</span></span><br></pre></td></tr></table></figure>
+
+<p>取 ‘a’ 到 ‘c’ 下所有 内层索引为 2 的项：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="string">'a'</span>: <span class="string">'c'</span>][:, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">a    <span class="number">0.715279</span></span><br><span class="line">a   <span class="number">-1.545400</span></span><br><span class="line">b    <span class="number">0.621336</span></span><br><span class="line">c    <span class="number">0.108549</span></span><br></pre></td></tr></table></figure>
+
+<p>取 ‘a’ 和 ‘c’ 下所有 内层索引为 2 的项：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(obj[[<span class="string">'a'</span>, <span class="string">'c'</span>]][:, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">a    <span class="number">0.715279</span></span><br><span class="line">a   <span class="number">-1.545400</span></span><br><span class="line">c    <span class="number">0.108549</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="DataFrame-举例"><a href="#DataFrame-举例" class="headerlink" title="DataFrame 举例"></a>DataFrame 举例</h3><p><strong>对于DataFrame，每条轴都可以有分层索引，且各层都可以有名字：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">data = DataFrame(np.arange(<span class="number">48</span>).reshape(<span class="number">8</span>, <span class="number">6</span>),</span><br><span class="line">                 columns=[list(<span class="string">'xxxyyz'</span>), [<span class="string">'M'</span>, <span class="string">'M'</span>, <span class="string">'N'</span>, <span class="string">'N'</span>, <span class="string">'M'</span>, <span class="string">'N'</span>]],</span><br><span class="line">                 index=[list(<span class="string">'AAABBCCD'</span>), list(<span class="string">'abbabcba'</span>)])</span><br><span class="line"></span><br><span class="line">data.index.names = [<span class="string">'key1'</span>, <span class="string">'key2'</span>]</span><br><span class="line">data.columns.names = [<span class="string">'state1'</span>, <span class="string">'state2'</span>]</span><br><span class="line"></span><br><span class="line">data</span><br><span class="line"></span><br><span class="line">state1      x           y       z</span><br><span class="line">state2      M   M   N   N   M   N</span><br><span class="line">key1 key2                        </span><br><span class="line">A    a      <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span>   <span class="number">5</span></span><br><span class="line">     b      <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span></span><br><span class="line">B    a     <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span>  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span></span><br><span class="line">     b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">26</span>  <span class="number">27</span>  <span class="number">28</span>  <span class="number">29</span></span><br><span class="line">C    c     <span class="number">30</span>  <span class="number">31</span>  <span class="number">32</span>  <span class="number">33</span>  <span class="number">34</span>  <span class="number">35</span></span><br><span class="line">     b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">38</span>  <span class="number">39</span>  <span class="number">40</span>  <span class="number">41</span></span><br><span class="line">D    a     <span class="number">42</span>  <span class="number">43</span>  <span class="number">44</span>  <span class="number">45</span>  <span class="number">46</span>  <span class="number">47</span></span><br></pre></td></tr></table></figure>
+
+<p>1 . 取 外层列 ‘x’:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'x'</span>]</span><br><span class="line"></span><br><span class="line">state2      M   M   N</span><br><span class="line">key1 key2            </span><br><span class="line">A    a      <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span></span><br><span class="line">     b      <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span></span><br><span class="line">B    a     <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line">     b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">26</span></span><br><span class="line">C    c     <span class="number">30</span>  <span class="number">31</span>  <span class="number">32</span></span><br><span class="line">     b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">38</span></span><br><span class="line">D    a     <span class="number">42</span>  <span class="number">43</span>  <span class="number">44</span></span><br></pre></td></tr></table></figure>
+
+<p>2 . 取 ‘x’ 和 ‘z’ 列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data[[<span class="string">'x'</span>, <span class="string">'z'</span>]]</span><br><span class="line"></span><br><span class="line">state1      x           z</span><br><span class="line">state2      M   M   N   N</span><br><span class="line">key1 key2                </span><br><span class="line">A    a      <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">5</span></span><br><span class="line">     b      <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>  <span class="number">11</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">17</span></span><br><span class="line">B    a     <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span>  <span class="number">23</span></span><br><span class="line">     b     <span class="number">24</span>  <span class="number">25</span>  <span class="number">26</span>  <span class="number">29</span></span><br><span class="line">C    c     <span class="number">30</span>  <span class="number">31</span>  <span class="number">32</span>  <span class="number">35</span></span><br><span class="line">     b     <span class="number">36</span>  <span class="number">37</span>  <span class="number">38</span>  <span class="number">41</span></span><br><span class="line">D    a     <span class="number">42</span>  <span class="number">43</span>  <span class="number">44</span>  <span class="number">47</span></span><br></pre></td></tr></table></figure>
+
+<p>3 . 取 A 对应的所有项，(与index相关的操作类似于 Series的操作)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data.ix[<span class="string">'A'</span>]</span><br><span class="line"></span><br><span class="line">state1   x           y       z</span><br><span class="line">state2   M   M   N   N   M   N</span><br><span class="line">key2                          </span><br><span class="line">a        <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span>   <span class="number">5</span></span><br><span class="line">b        <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line">b       <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span></span><br><span class="line"></span><br><span class="line">类似的多选和切片：</span><br><span class="line">data.ix[[<span class="string">'A'</span>, <span class="string">'C'</span>]]</span><br><span class="line">data.ix[<span class="string">'A'</span>:<span class="string">'C'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>3 . 取 ‘x’ 下 ‘M’ 列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'x'</span>, <span class="string">'M'</span>]</span><br><span class="line"></span><br><span class="line">state1      x    </span><br><span class="line">state2      M   M</span><br><span class="line">key1 key2        </span><br><span class="line">A    a      <span class="number">0</span>   <span class="number">1</span></span><br><span class="line">     b      <span class="number">6</span>   <span class="number">7</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span></span><br><span class="line">B    a     <span class="number">18</span>  <span class="number">19</span></span><br><span class="line">     b     <span class="number">24</span>  <span class="number">25</span></span><br><span class="line">C    c     <span class="number">30</span>  <span class="number">31</span></span><br><span class="line">     b     <span class="number">36</span>  <span class="number">37</span></span><br><span class="line">D    a     <span class="number">42</span>  <span class="number">43</span></span><br><span class="line"></span><br><span class="line">注意：这样能取！但是！sys:<span class="number">1</span>: PerformanceWarning: indexing past lexsort depth may impact performance.</span><br><span class="line">有性能问题。所以不要这样做。</span><br><span class="line"></span><br><span class="line">只需要一层一层提取就可以了。</span><br><span class="line"></span><br><span class="line">data[<span class="string">'x'</span>][<span class="string">'M'</span>]</span><br><span class="line"></span><br><span class="line">state2      M   M</span><br><span class="line">key1 key2        </span><br><span class="line">A    a      <span class="number">0</span>   <span class="number">1</span></span><br><span class="line">     b      <span class="number">6</span>   <span class="number">7</span></span><br><span class="line">     b     <span class="number">12</span>  <span class="number">13</span></span><br><span class="line">B    a     <span class="number">18</span>  <span class="number">19</span></span><br><span class="line">     b     <span class="number">24</span>  <span class="number">25</span></span><br><span class="line">C    c     <span class="number">30</span>  <span class="number">31</span></span><br><span class="line">     b     <span class="number">36</span>  <span class="number">37</span></span><br><span class="line">D    a     <span class="number">42</span>  <span class="number">43</span></span><br></pre></td></tr></table></figure>
+
+
+<p>5 .一层层提取示例</p>
+<p>取 A 对应的 ‘x’ 和 ‘z’ 列: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data.ix[<span class="string">'A'</span>][[<span class="string">'x'</span>, <span class="string">'z'</span>]]</span><br><span class="line"></span><br><span class="line">state1   x           z</span><br><span class="line">state2   M   M   N   N</span><br><span class="line">key2                  </span><br><span class="line">a        <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">5</span></span><br><span class="line">b        <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>  <span class="number">11</span></span><br><span class="line">b       <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">17</span></span><br></pre></td></tr></table></figure>
+
+<p>取 A 对应的 ‘x’ 列 中的 ‘M’ 列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data.ix[<span class="string">'A'</span>][<span class="string">'x'</span>][<span class="string">'M'</span>]</span><br><span class="line"></span><br><span class="line">state2   M   M</span><br><span class="line">key2          </span><br><span class="line">a        <span class="number">0</span>   <span class="number">1</span></span><br><span class="line">b        <span class="number">6</span>   <span class="number">7</span></span><br><span class="line">b       <span class="number">12</span>  <span class="number">13</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="取所有的-‘a’-索引的行："><a href="#取所有的-‘a’-索引的行：" class="headerlink" title="取所有的 ‘a’ 索引的行："></a>取所有的 ‘a’ 索引的行：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data.ix[:][<span class="string">'N'</span>]</span><br><span class="line"></span><br><span class="line">报错！</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pandas/core/indexes/base.py"</span>, line <span class="number">2525</span>, <span class="keyword">in</span> get_loc</span><br><span class="line">    <span class="keyword">return</span> self._engine.get_loc(key)</span><br><span class="line">    ... ...</span><br><span class="line">    ... ...</span><br><span class="line">KeyError: <span class="string">'N'</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="取-A-对应的-‘x’-‘z’-中的所有-‘N’-列："><a href="#取-A-对应的-‘x’-‘z’-中的所有-‘N’-列：" class="headerlink" title="取 A 对应的 ‘x’ , ‘z’ 中的所有 ‘N’ 列："></a>取 A 对应的 ‘x’ , ‘z’ 中的所有 ‘N’ 列：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data.ix[<span class="string">'A'</span>][[<span class="string">'x'</span>, <span class="string">'z'</span>]][:, <span class="string">'N'</span>]</span><br><span class="line"></span><br><span class="line">报错！</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"/Users/liumingyi/Documents/pythonProjects/PyDataAnalysis/pandas/SeriesTest.py"</span>, line <span class="number">293</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">   ... ...</span><br><span class="line">   ... ...</span><br><span class="line">  TypeError: unhashable type: <span class="string">'slice'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="问题：此时遇到问题，如何通过内层的列索引提取数据？"><a href="#问题：此时遇到问题，如何通过内层的列索引提取数据？" class="headerlink" title="问题：此时遇到问题，如何通过内层的列索引提取数据？"></a>问题：此时遇到问题，如何通过内层的列索引提取数据？</h3><p>哎😔，作者也没有详细描写，所以自己去搜吧。</p>
+<p>… Google … bing … …</p>
+<p><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.xs.html" target="_blank" rel="noopener">文档 pandas.DataFrame.xs</a></p>
+<p><a href="http://pandas.pydata.org/pandas-docs/stable/advanced.html#advanced-mi-slicers" target="_blank" rel="noopener">文档 MultiIndex Slicers</a></p>
+<p><strong>“总感觉搜到的是个山寨文档 ：）”</strong></p>
+<p><strong>xs方法</strong>（Series中也有此方法） 和 <strong>MultiIndex切片机</strong> 可以完美解决上述问题，而且取值方式清晰简单方便，不易出错。</p>
+<p>🤣这篇博客算是写了一页的废话了！握草，Series &amp; DataFrame 取值详细总结见 <a href="/2018/05/14/层次化索引-2/">下篇</a>🤣。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/10/%E5%B1%82%E6%AC%A1%E5%8C%96%E7%B4%A2%E5%BC%95/" data-id="ck7mkb4330027ayvh9mq6arub" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">Python数据分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeWars/" rel="tag">CodeWars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetpack/" rel="tag">Jetpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Challenge/" rel="tag">Python Challenge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">Python数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" rel="tag">算法训练</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BA%AA/" rel="tag">面纪</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/CodeWars/" style="font-size: 10px;">CodeWars</a> <a href="/tags/Design-Pattern/" style="font-size: 15px;">Design Pattern</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 11.67px;">Java</a> <a href="/tags/Jetpack/" style="font-size: 13.33px;">Jetpack</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Python-Challenge/" style="font-size: 18.33px;">Python Challenge</a> <a href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 16.67px;">Python数据分析</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">算法训练</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E9%9D%A2%E7%BA%AA/" style="font-size: 11.67px;">面纪</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/17/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC2%E5%91%A8/">算法训练-第2周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/07/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC1%E5%91%A8/">算法训练-第1周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Activity%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F/">Activity四种启动模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Java%E5%86%85%E9%83%A8%E7%B1%BB/">Java内部类和静态内部类</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/12/%E5%8F%8D%E7%BC%96%E8%AF%91-%E7%BC%96%E8%AF%91/">反编译&amp;重新编译</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

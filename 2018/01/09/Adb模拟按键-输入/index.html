@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Adb模拟按键/输入/截图 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ADB大全 这个挺详细的，感谢作者。 自己的ADB小复习 ：） ###模拟按键 12#进入模拟器&#x2F;设备实例上的远程shelladb shell  直接输入input ， 回车可查看其所有命令： 1234567891011121314151617181920212223hero2qltechn:&#x2F; $ inputUsage: input [&lt;source&gt;] &lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Adb模拟按键&#x2F;输入&#x2F;截图">
+<meta property="og:url" content="http://yoursite.com/2018/01/09/Adb%E6%A8%A1%E6%8B%9F%E6%8C%89%E9%94%AE-%E8%BE%93%E5%85%A5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ADB大全 这个挺详细的，感谢作者。 自己的ADB小复习 ：） ###模拟按键 12#进入模拟器&#x2F;设备实例上的远程shelladb shell  直接输入input ， 回车可查看其所有命令： 1234567891011121314151617181920212223hero2qltechn:&#x2F; $ inputUsage: input [&lt;source&gt;] &lt;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-01-09T09:08:16.000Z">
+<meta property="article:modified_time" content="2018-01-10T03:24:53.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Adb模拟按键-输入" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/09/Adb%E6%A8%A1%E6%8B%9F%E6%8C%89%E9%94%AE-%E8%BE%93%E5%85%A5/" class="article-date">
+  <time datetime="2018-01-09T09:08:16.000Z" itemprop="datePublished">2018-01-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Adb模拟按键/输入/截图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/mzlogin/awesome-adb#%E6%A8%A1%E6%8B%9F%E6%8C%89%E9%94%AE%E8%BE%93%E5%85%A5" target="_blank" rel="noopener">ADB大全</a> 这个挺详细的，感谢作者。</p>
+<p>自己的ADB小复习 ：）</p>
+<p>###模拟按键</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#进入模拟器&#x2F;设备实例上的远程shell</span><br><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+
+<p>直接输入input ， 回车可查看其所有命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">hero2qltechn:&#x2F; $ input</span><br><span class="line">Usage: input [&lt;source&gt;] &lt;command&gt; [&lt;arg&gt;...]</span><br><span class="line"></span><br><span class="line">The sources are: </span><br><span class="line">      keyboard</span><br><span class="line">      mouse</span><br><span class="line">      joystick</span><br><span class="line">      touchnavigation</span><br><span class="line">      touchpad</span><br><span class="line">      trackball</span><br><span class="line">      dpad</span><br><span class="line">      stylus</span><br><span class="line">      gamepad</span><br><span class="line">      touchscreen</span><br><span class="line"></span><br><span class="line">The commands and default sources are:</span><br><span class="line">      text &lt;string&gt; (Default: touchscreen)</span><br><span class="line">      keyevent [--longpress] &lt;key code number or name&gt; ... (Default: keyboard)</span><br><span class="line">      tap &lt;x&gt; &lt;y&gt; (Default: touchscreen)</span><br><span class="line">      swipe &lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; [duration(ms)] (Default: touchscreen)</span><br><span class="line">      press (Default: trackball)</span><br><span class="line">      roll &lt;dx&gt; &lt;dy&gt; (Default: trackball)</span><br><span class="line">hero2qltechn:&#x2F; $</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<p><strong>adb shell input keyevent <keycode></strong> 命令，keycode即代表不同的按键。完整列表<a href="https://developer.android.com/reference/android/view/KeyEvent.html" target="_blank" rel="noopener">KeyEvent</a></p>
+<p>可能是最常用的：(摘自 ADB大全)</p>
+<table>
+<thead>
+<tr>
+<th>keycode</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>HOME 键</td>
+</tr>
+<tr>
+<td>4</td>
+<td>返回键</td>
+</tr>
+<tr>
+<td>5</td>
+<td>打开拨号应用</td>
+</tr>
+<tr>
+<td>6</td>
+<td>挂断电话</td>
+</tr>
+<tr>
+<td>24</td>
+<td>增加音量</td>
+</tr>
+<tr>
+<td>25</td>
+<td>降低音量</td>
+</tr>
+<tr>
+<td>26</td>
+<td>电源键</td>
+</tr>
+<tr>
+<td>27</td>
+<td>拍照（需要在相机应用里）</td>
+</tr>
+<tr>
+<td>64</td>
+<td>打开浏览器</td>
+</tr>
+<tr>
+<td>82</td>
+<td>菜单键</td>
+</tr>
+<tr>
+<td>85</td>
+<td>播放/暂停</td>
+</tr>
+<tr>
+<td>86</td>
+<td>停止播放</td>
+</tr>
+<tr>
+<td>87</td>
+<td>播放下一首</td>
+</tr>
+<tr>
+<td>88</td>
+<td>播放上一首</td>
+</tr>
+<tr>
+<td>122</td>
+<td>移动光标到行首或列表顶部</td>
+</tr>
+<tr>
+<td>123</td>
+<td>移动光标到行末或列表底部</td>
+</tr>
+<tr>
+<td>126</td>
+<td>恢复播放</td>
+</tr>
+<tr>
+<td>127</td>
+<td>暂停播放</td>
+</tr>
+<tr>
+<td>164</td>
+<td>静音</td>
+</tr>
+<tr>
+<td>176</td>
+<td>打开系统设置</td>
+</tr>
+<tr>
+<td>187</td>
+<td>切换应用</td>
+</tr>
+<tr>
+<td>207</td>
+<td>打开联系人</td>
+</tr>
+<tr>
+<td>208</td>
+<td>打开日历</td>
+</tr>
+<tr>
+<td>209</td>
+<td>打开音乐</td>
+</tr>
+<tr>
+<td>210</td>
+<td>打开计算器</td>
+</tr>
+<tr>
+<td>220</td>
+<td>降低屏幕亮度</td>
+</tr>
+<tr>
+<td>221</td>
+<td>提高屏幕亮度</td>
+</tr>
+<tr>
+<td>223</td>
+<td>系统休眠</td>
+</tr>
+<tr>
+<td>224</td>
+<td>点亮屏幕</td>
+</tr>
+<tr>
+<td>231</td>
+<td>打开语音助手</td>
+</tr>
+<tr>
+<td>276</td>
+<td>如果没有 wakelock 则让系统休眠</td>
+</tr>
+</tbody></table>
+<p>我觉得最实用的几个：</p>
+<p>1.文本输入.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#输入hello</span><br><span class="line">input text hello</span><br></pre></td></tr></table></figure>
+
+<p>2.点击屏幕</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 点击屏幕上（200,300）这个点，单位px，是以整块屏幕为准的坐标哦</span><br><span class="line">input tap 200 300</span><br></pre></td></tr></table></figure>
+
+<p>3.划过屏幕</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 从屏幕上点(500,300)滑到(500,800),耗时为100ms</span><br><span class="line">input swipe 500 300 500 800 100</span><br><span class="line"></span><br><span class="line"># 可以用来模拟《跳一跳》长按</span><br></pre></td></tr></table></figure>
+
+
+<p>###截图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">⇒  adb shell screencap -h</span><br><span class="line">usage: screencap [-hp] [-d display-id] [FILENAME]</span><br><span class="line">   -h: this message</span><br><span class="line">   -p: save the file as a png.</span><br><span class="line">   -d: specify the display id to capture, default 0.</span><br><span class="line">If FILENAME ends with .png it will be saved as a png.</span><br><span class="line">If FILENAME is not given, the results will be printed to stdout.</span><br></pre></td></tr></table></figure>
+
+<p>截图保存到电脑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb exec-out screencap -p &gt; sc.png</span><br></pre></td></tr></table></figure>
+
+<p>先保存到设备里，再导出到电脑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell screencap -p &#x2F;sdcard&#x2F;sc.png</span><br><span class="line">adb pull &#x2F;sdcard&#x2F;sc.png</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>That’s it</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/09/Adb%E6%A8%A1%E6%8B%9F%E6%8C%89%E9%94%AE-%E8%BE%93%E5%85%A5/" data-id="ck7mkb424000cayvh8wqd3p87" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/22/Python-Challenge-level6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python Challenge level6
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/02/Python-Challenge-level5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python Challenge level5</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeWars/" rel="tag">CodeWars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetpack/" rel="tag">Jetpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Challenge/" rel="tag">Python Challenge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">Python数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" rel="tag">算法训练</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BA%AA/" rel="tag">面纪</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/CodeWars/" style="font-size: 10px;">CodeWars</a> <a href="/tags/Design-Pattern/" style="font-size: 15px;">Design Pattern</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 11.67px;">Java</a> <a href="/tags/Jetpack/" style="font-size: 13.33px;">Jetpack</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Python-Challenge/" style="font-size: 18.33px;">Python Challenge</a> <a href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 16.67px;">Python数据分析</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">算法训练</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E9%9D%A2%E7%BA%AA/" style="font-size: 11.67px;">面纪</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/17/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC2%E5%91%A8/">算法训练-第2周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/07/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC1%E5%91%A8/">算法训练-第1周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Activity%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F/">Activity四种启动模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Java%E5%86%85%E9%83%A8%E7%B1%BB/">Java内部类和静态内部类</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/12/%E5%8F%8D%E7%BC%96%E8%AF%91-%E7%BC%96%E8%AF%91/">反编译&amp;重新编译</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

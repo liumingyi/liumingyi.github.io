@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>1.策略模式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="策略模式（Strategy Pattern） “定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户”  例子：BMW打折策略   Android中的策略模式：插值器（TimeInterpolator） 简单分析（水平不够，复杂的搞不来）Orz 如图  上图剔除了不需要看的内容，策略模式的结构就很显而易见了 附：animateValue()方法，这个方法是在每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.策略模式">
+<meta property="og:url" content="http://yoursite.com/2018/02/01/1-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="策略模式（Strategy Pattern） “定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户”  例子：BMW打折策略   Android中的策略模式：插值器（TimeInterpolator） 简单分析（水平不够，复杂的搞不来）Orz 如图  上图剔除了不需要看的内容，策略模式的结构就很显而易见了 附：animateValue()方法，这个方法是在每">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/6eba256bly1fo0sx77b5rj20na0czdgl.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/6eba256bly1fo0xwgayhaj20ve0rpq4l.jpg">
+<meta property="article:published_time" content="2018-02-01T02:14:57.000Z">
+<meta property="article:modified_time" content="2018-02-01T07:24:47.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/6eba256bly1fo0sx77b5rj20na0czdgl.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-1-策略模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/01/1-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time datetime="2018-02-01T02:14:57.000Z" itemprop="datePublished">2018-02-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      1.策略模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>策略模式（Strategy Pattern）</strong></p>
+<p><strong>“定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户”</strong></p>
+<hr>
+<p>例子：BMW打折策略</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6eba256bly1fo0sx77b5rj20na0czdgl.jpg" alt=""></p>
+<hr>
+<p><strong>Android</strong>中的策略模式：插值器（TimeInterpolator）</p>
+<p>简单分析（水平不够，复杂的搞不来）Orz</p>
+<p>如图</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6eba256bly1fo0xwgayhaj20ve0rpq4l.jpg" alt=""></p>
+<p>上图剔除了不需要看的内容，策略模式的结构就很显而易见了</p>
+<p>附：animateValue()方法，这个方法是在每次动画的经过部分调用的。这个函数将经过的分数转换成插值分数。然后变成一个动画值（通过计算器，该函数主要在<br>动画更新的时候调用，但它也在end()方法调用的时候<br>被调用，用来设置最终值。重写这个方法必须调用基类实现动画值的计算。</p>
+<hr>
+<p>原则：</p>
+<ul>
+<li>封装变化</li>
+<li>多用组合，少用继承</li>
+<li>针对接口编程，不针对实现编程                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </li>
+</ul>
+<blockquote>
+<p>哲人说：即使是废人，也要努力的生活！</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/01/1-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" data-id="ck7mkb41t0001ayvhfo16h2ee" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/02/Python-Challenge-level7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python Challenge level7
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/25/Python%E5%B0%8F%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python小总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeWars/" rel="tag">CodeWars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetpack/" rel="tag">Jetpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Challenge/" rel="tag">Python Challenge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">Python数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" rel="tag">算法训练</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BA%AA/" rel="tag">面纪</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/CodeWars/" style="font-size: 10px;">CodeWars</a> <a href="/tags/Design-Pattern/" style="font-size: 15px;">Design Pattern</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 11.67px;">Java</a> <a href="/tags/Jetpack/" style="font-size: 13.33px;">Jetpack</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Python-Challenge/" style="font-size: 18.33px;">Python Challenge</a> <a href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 16.67px;">Python数据分析</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">算法训练</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E9%9D%A2%E7%BA%AA/" style="font-size: 11.67px;">面纪</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/17/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC2%E5%91%A8/">算法训练-第2周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/07/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC1%E5%91%A8/">算法训练-第1周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Activity%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F/">Activity四种启动模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Java%E5%86%85%E9%83%A8%E7%B1%BB/">Java内部类和静态内部类</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/12/%E5%8F%8D%E7%BC%96%E8%AF%91-%E7%BC%96%E8%AF%91/">反编译&amp;重新编译</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

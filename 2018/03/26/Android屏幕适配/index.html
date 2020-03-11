@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Android屏幕适配 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="尺寸单位：参考Android官方文档 参考2 px (pixel): 像素。 （设计师给的设计图通常都是以此为单位。） dpi (dots per inch): 像素密度，每英寸的像素点数。 dp (density-independent pixel): 同时也叫做dip，密度无关像素，与终端上的实际物理像素点无关。密度无关像素等于 160 dpi 屏幕上的一个物理像素。 注意哦：dp即di">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android屏幕适配">
+<meta property="og:url" content="http://yoursite.com/2018/03/26/Android%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="尺寸单位：参考Android官方文档 参考2 px (pixel): 像素。 （设计师给的设计图通常都是以此为单位。） dpi (dots per inch): 像素密度，每英寸的像素点数。 dp (density-independent pixel): 同时也叫做dip，密度无关像素，与终端上的实际物理像素点无关。密度无关像素等于 160 dpi 屏幕上的一个物理像素。 注意哦：dp即di">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-03-26T03:31:54.000Z">
+<meta property="article:modified_time" content="2018-04-02T03:12:48.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android屏幕适配" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/26/Android%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/" class="article-date">
+  <time datetime="2018-03-26T03:31:54.000Z" itemprop="datePublished">2018-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android屏幕适配
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h2 id="尺寸单位："><a href="#尺寸单位：" class="headerlink" title="尺寸单位："></a>尺寸单位：</h2><p><a href="https://developer.android.com/guide/practices/screens_support.html?hl=zh-cn" target="_blank" rel="noopener">参考Android官方文档</a></p>
+<p><a href="https://developer.android.com/guide/practices/screens_support.html" target="_blank" rel="noopener">参考2</a></p>
+<p><strong>px (pixel)</strong>: 像素。 （设计师给的设计图通常都是以此为单位。）</p>
+<p><strong>dpi (dots per inch)</strong>: 像素密度，每英寸的像素点数。</p>
+<p><strong>dp (density-independent pixel)</strong>: 同时也叫做dip，密度无关像素，与终端上的实际物理像素点无关。密度无关像素等于 160 dpi 屏幕上的一个物理像素。</p>
+<p>注意哦：dp即dip，dip不是dpi，切勿混淆，为了不混淆还是忘掉dip吧，它就是dp！</p>
+<p>另外物理尺寸：1英寸 = 2.54 cm</p>
+<p>平时所说的手机屏幕尺寸是指的对角线长度。而 “像素密度 = 对角线像素 / 对角线的物理尺寸”。</p>
+<p>非要弄个公式的话:  $$屏幕像素密度(dpi) = \frac{\sqrt{长(px)^2 + 宽(px)^2}}{尺寸(inch)}$$</p>
+<p>比如：Samsung s7 edge手机，屏幕尺寸5.5英寸，分辨率2560 x 1440像素。</p>
+<p>$$s7的像素密度 = \frac{\sqrt{2560^2 + 1440^2}}{5.5} \approx 534 $$</p>
+<hr>
+<p>为简便起见，Android 将所有屏幕密度分组为六种通用密度： 低、中、高、超高、超超高和超超超高</p>
+<table>
+<thead>
+<tr>
+<th>密度</th>
+<th>屏幕像素密度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ldpi（低）</td>
+<td>~120dpi</td>
+</tr>
+<tr>
+<td>mdpi（中）</td>
+<td>~160dpi</td>
+</tr>
+<tr>
+<td>hdpi（高）</td>
+<td>~240dpi</td>
+</tr>
+<tr>
+<td>xhdpi（超高）</td>
+<td>~320dpi</td>
+</tr>
+<tr>
+<td>xxhdpi（超超高）</td>
+<td>~480dpi</td>
+</tr>
+<tr>
+<td>xxxhdpi（超超超高）</td>
+<td>~640dpi</td>
+</tr>
+</tbody></table>
+<p>  通用尺寸：</p>
+<table>
+<thead>
+<tr>
+<th>尺寸</th>
+<th>最小尺寸（dp）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小屏幕</td>
+<td>426 x 320</td>
+</tr>
+<tr>
+<td>正常屏幕</td>
+<td>470 x 320</td>
+</tr>
+<tr>
+<td>大屏幕</td>
+<td>640 x 480</td>
+</tr>
+<tr>
+<td>超大屏幕</td>
+<td>960 x 720</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="配置限定符"><a href="#配置限定符" class="headerlink" title="配置限定符"></a>配置限定符</h2><p> 通用尺寸的限定符从 Android 3.2（Api 13）开始，已经弃用，就忘了这个吧</p>
+<p> Android 3.2以后的配置限定符：</p>
+<table>
+<thead>
+<tr>
+<th>屏幕配置</th>
+<th>限定符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>smallestWidth</td>
+<td>sw&lt; N &gt; dp 示例：sw600dp sw720dp</td>
+<td>屏幕的基本尺寸，由可用屏幕区域的最小尺寸指定。 具体来说，设备的 smallestWidth 是屏幕可用高度和宽度的最小尺寸（您也可以将其视为屏幕的“最小可能宽度”）。无论屏幕的当前方向如何，您均可使用此限定符确保应用 UI 的可用宽度至少为 N dp。smallestWidth 是设备的固定屏幕尺寸特性；<strong>设备的 smallestWidth 不会随屏幕方向的变化而改变。</strong></td>
+</tr>
+<tr>
+<td>可用屏幕宽度</td>
+<td>w&lt; N &gt;dp 示例：w720dp w1024dp</td>
+<td>指定资源应该使用的最小可用宽度（dp 单位） — 由 N 值定义。当屏幕的方向在横屏与竖屏之间切换时，系统对应的 宽度值将会变化，以 反映 UI 可用的当前实际宽度。</td>
+</tr>
+<tr>
+<td>可用屏幕高度</td>
+<td>h&lt; N &gt;dp 示例：h720dp h1024dp</td>
+<td>指定资源应该使用的最小屏幕高度（dp 单位） — 由 N 值定义。当屏幕的方向在横屏与竖屏之间切换时，系统 对应的高度值将会变化，以 反映 UI 可用的当前实际高度。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="如何适配"><a href="#如何适配" class="headerlink" title="如何适配"></a>如何适配</h2><ol>
+<li>不必说，当然是使用 dp ，而不是像素为单位，忘掉AbsoluteLayout（很久很久以前就已被官方弃用）</li>
+<li>多用RelativeLayout，LinearLayout，ConstraintLayout，善用wrap_content,match_parent,weight来控制视图组件的宽度和高度。</li>
+<li>使用限定符，根据屏幕的配置来加载相应的UI布局。</li>
+<li>配置不同分辨率的图片资源，使用自动拉伸的.9图，使图片资源自适应屏幕尺寸。</li>
+</ol>
+<hr>
+<h2 id="测试时候的各种屏幕配置"><a href="#测试时候的各种屏幕配置" class="headerlink" title="测试时候的各种屏幕配置"></a>测试时候的各种屏幕配置</h2><p>Android SDK（粗体表示）及其他 代表性解决方案中模拟器皮肤提供的 各种屏幕配置:</p>
+<p> |低密度(120),ldpi | 中密度(160),mdpi | 高密度(240),hdpi | 超高密度(320),xhdpi<br>— | — | — | — | —<br>小屏幕 | 240x320 | | 480x640 |<br>正常屏幕 | 240x400 , 240x432 | 320x480 | 480x800 , 480x854 , 600x1024 | 640x960<br>大屏幕 | 480x800 , 480x854 | 600x1024 ||<br>超大屏幕 | 1024x600 | 1024x768 , 1280x768 , 1280x800 | 1536x1152 , 1920x1152 , 1920x1200 | 2048x1536 , 2560x1536 , 2560x1600 </p>
+<p>不过，</p>
+<p>个人认为，就目前来看，直接从大屏幕和高密度开测就行了（当然这是不严谨的），现在的Android手机没有那么渣了。并且应该将超超高密度纳入。例如三星s7，s9都属于超超高密度。</p>
+<hr>
+<h2 id="关于全面屏的适配"><a href="#关于全面屏的适配" class="headerlink" title="关于全面屏的适配"></a>关于全面屏的适配</h2><p>本来大家都是16:9，结果…小米Mix 18：9，三星s8 18.5：9 … …</p>
+<p>参考</p>
+<p><a href="http://developer.huawei.com/consumer/cn/wiki/index.php?title=%E5%8D%8E%E4%B8%BA%E5%85%A8%E9%9D%A2%E5%B1%8F%E9%80%82%E9%85%8D%E6%8A%80%E6%9C%AF%E6%8C%87%E5%AF%BC" target="_blank" rel="noopener">华为全面屏适配指导</a></p>
+<p><a href="https://android-developers.googleblog.com/2017/03/update-your-app-to-take-advantage-of.html" target="_blank" rel="noopener">Android官方博客</a></p>
+<p>个人做了适配后，看到有的布局被拉伸后，差别还是挺大的。</p>
+<p>所以</p>
+<p>还是直接一点，直接弄一个文件夹<strong>layout-xxhdpi-2160x1080</strong>，给需要的页面重新写一套布局吧，简单粗暴直接有效。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/26/Android%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D/" data-id="ck7mkb425000eayvh1kmfg4ue" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/03/%E8%AF%BB%E4%B9%A6%E6%B8%85%E5%8D%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          读书清单
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/22/%E5%BC%80%E9%97%A8%E8%8F%9C%E5%8D%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">开门菜单</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeWars/" rel="tag">CodeWars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetpack/" rel="tag">Jetpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Challenge/" rel="tag">Python Challenge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">Python数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" rel="tag">算法训练</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BA%AA/" rel="tag">面纪</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/CodeWars/" style="font-size: 10px;">CodeWars</a> <a href="/tags/Design-Pattern/" style="font-size: 15px;">Design Pattern</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 11.67px;">Java</a> <a href="/tags/Jetpack/" style="font-size: 13.33px;">Jetpack</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Python-Challenge/" style="font-size: 18.33px;">Python Challenge</a> <a href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 16.67px;">Python数据分析</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">算法训练</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E9%9D%A2%E7%BA%AA/" style="font-size: 11.67px;">面纪</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/17/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC2%E5%91%A8/">算法训练-第2周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/07/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC1%E5%91%A8/">算法训练-第1周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Activity%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F/">Activity四种启动模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Java%E5%86%85%E9%83%A8%E7%B1%BB/">Java内部类和静态内部类</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/12/%E5%8F%8D%E7%BC%96%E8%AF%91-%E7%BC%96%E8%AF%91/">反编译&amp;重新编译</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

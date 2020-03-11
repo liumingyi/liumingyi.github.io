@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MySQL命令学习 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以下基于MySQL 8.0.11 登录MySQL12# 使用账户root登录mysql -u root -p  查看所有用户12# 查看所有用户的host和用户名select host,user form mysql.user;  删除用户12# 删除用户名为web，host为localhost的用户drop user &#39;web&#39;@&#39;localhost&#39;;  新建用户12# 创建用户 web，ho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL命令学习">
+<meta property="og:url" content="http://yoursite.com/2018/06/29/MySQL%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="以下基于MySQL 8.0.11 登录MySQL12# 使用账户root登录mysql -u root -p  查看所有用户12# 查看所有用户的host和用户名select host,user form mysql.user;  删除用户12# 删除用户名为web，host为localhost的用户drop user &#39;web&#39;@&#39;localhost&#39;;  新建用户12# 创建用户 web，ho">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-06-29T06:49:30.000Z">
+<meta property="article:modified_time" content="2018-06-29T06:51:04.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MySQL命令学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/29/MySQL%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2018-06-29T06:49:30.000Z" itemprop="datePublished">2018-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL命令学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下基于MySQL 8.0.11</p>
+<h3 id="登录MySQL"><a href="#登录MySQL" class="headerlink" title="登录MySQL"></a>登录MySQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用账户root登录</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看所有用户"><a href="#查看所有用户" class="headerlink" title="查看所有用户"></a>查看所有用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看所有用户的host和用户名</span></span><br><span class="line"><span class="keyword">select</span> host,<span class="keyword">user</span> <span class="keyword">form</span> mysql.user;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除用户名为web，host为localhost的用户</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">user</span> <span class="string">'web'</span>@<span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户 web，host=localhost</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'web'</span>@<span class="string">'localhost'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'web'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭MySQL"><a href="#关闭MySQL" class="headerlink" title="关闭MySQL"></a>关闭MySQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server <span class="keyword">stop</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看当前连接的数据库"><a href="#查看当前连接的数据库" class="headerlink" title="查看当前连接的数据库"></a>查看当前连接的数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意有括号哦</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示所有数据库"><a href="#显示所有数据库" class="headerlink" title="显示所有数据库"></a>显示所有数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意：有s哦</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> 数据库名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示当前数据库所有的表"><a href="#显示当前数据库所有的表" class="headerlink" title="显示当前数据库所有的表"></a>显示当前数据库所有的表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需选一个数据库先</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name(column_name column_type);</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：创建一个Users表格,属性：user_id,user_name,register_time</span></span><br><span class="line"><span class="comment"># 主键：user_id 存储引擎：InnoDB 默认编码:utf8</span></span><br><span class="line">mysql&gt; create table if not exists `users`(`user_id` INT UNSIGNED AUTO_INCREMENT,</span><br><span class="line">    -&gt; `user_name` VARCHAR(245) NOT NULL,</span><br><span class="line">    -&gt; `register_time` DATE NOT NULL,</span><br><span class="line">    -&gt; PRIMARY KEY(`user_id`))ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：上面的符号 <code>...</code> 不是单引号，是像右的点</p>
+</blockquote>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需在对应的数据库下</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入数据-INSERT-INTO"><a href="#插入数据-INSERT-INTO" class="headerlink" title="插入数据 INSERT INTO"></a>插入数据 INSERT INTO</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                       <span class="keyword">VALUES</span></span><br><span class="line">                       ( value1, value2,...valueN );</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> cars (<span class="keyword">name</span>,brand,price,oil,score) <span class="keyword">values</span> (<span class="string">"宝马7系"</span>,<span class="string">"宝马"</span>,<span class="number">72.98</span>,<span class="number">15</span>,<span class="number">4.5</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="string">`cars`</span> (<span class="string">`name`</span>,<span class="string">`brand`</span>,<span class="string">`price`</span>,<span class="string">`oil`</span>,<span class="string">`score`</span>) <span class="keyword">values</span> (<span class="string">'宝马3系'</span>,<span class="string">'宝马'</span>,<span class="string">'32.98'</span>,<span class="string">'10'</span>,<span class="string">'4.8'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询数据-SELECT…FROM…"><a href="#查询数据-SELECT…FROM…" class="headerlink" title="查询数据 SELECT…FROM…"></a>查询数据 SELECT…FROM…</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line">[<span class="keyword">LIMIT</span> N][ <span class="keyword">OFFSET</span> M]</span><br><span class="line"></span><br><span class="line"><span class="comment"># LIMIT 设定返回的记录数，OFFSET 开始查询的数据偏移量</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line"><span class="comment"># 查看所有</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> cars;</span><br><span class="line"><span class="comment"># 查看score大于4.7的车名</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>,score <span class="keyword">from</span> cars <span class="keyword">where</span> score&gt;<span class="number">4.7</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>ORDER BY子句</strong> 排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> field1, field2,...fieldN table_name1, table_name2...</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> field1, [field2...] [<span class="keyword">ASC</span> [<span class="keyword">DESC</span>]]</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from cars order by price ASC;</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">| name       | brand        | price | oil  | score |</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">| 宝马3系    | 华晨宝马     | 32.98 |   10 |   4.8 |</span><br><span class="line">| 宝马x3     | 华晨宝马     | 38.88 |   11 |   4.4 |</span><br><span class="line">| 宝马5系    | 华晨宝马     | 42.98 |   12 |   4.7 |</span><br><span class="line">| 宝马x5     | 宝马         | 72.88 |   13 |     5 |</span><br><span class="line">| 宝马7系    | 宝马         | 72.98 |   15 |   4.5 |</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">5 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="keyword">select</span> * <span class="keyword">from</span> cars <span class="keyword">order</span> <span class="keyword">by</span> price <span class="keyword">DESC</span>;</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">| name       | brand        | price | oil  | score |</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br><span class="line">| 宝马7系    | 宝马         | 72.98 |   15 |   4.5 |</span><br><span class="line">| 宝马x5     | 宝马         | 72.88 |   13 |     5 |</span><br><span class="line">| 宝马5系    | 华晨宝马     | 42.98 |   12 |   4.7 |</span><br><span class="line">| 宝马x3     | 华晨宝马     | 38.88 |   11 |   4.4 |</span><br><span class="line">| 宝马3系    | 华晨宝马     | 32.98 |   10 |   4.8 |</span><br><span class="line">+<span class="comment">------------+--------------+-------+------+-------+</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>BINARY关键字</p>
+<p>MySQL 的 WHERE 子句的字符串比较是不区分大小写的。 你可以使用 BINARY 关键字来设定 WHERE 子句的字符串比较是区分大小写的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;mysql&gt; SELECT * from runoob_tbl WHERE BINARY runoob_author='runoob.com';</span><br><span class="line">&gt;Empty set (0.01 sec)</span><br><span class="line"></span><br><span class="line">&gt;mysql&gt; SELECT * from runoob_tbl WHERE BINARY runoob_author='RUNOOB.COM';</span><br><span class="line">+<span class="comment">-----------+---------------+---------------+-----------------+</span></span><br><span class="line">| runoob_id | runoob_title  | runoob_author | submission_date |</span><br><span class="line">+<span class="comment">-----------+---------------+---------------+-----------------+</span></span><br><span class="line">| 3         | JAVA 教程   | RUNOOB.COM    | 2016-05-06      |</span><br><span class="line">| 4         | 学习 Python | RUNOOB.COM    | 2016-03-06      |</span><br><span class="line">+<span class="comment">-----------+---------------+---------------+-----------------+</span></span><br><span class="line">2 rows in <span class="keyword">set</span> (<span class="number">0.01</span> sec)</span><br></pre></td></tr></table></figure>
+<p>例子来源：<a href="http://www.runoob.com/mysql/mysql-where-clause.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+</blockquote>
+<h3 id="ALTER命令"><a href="#ALTER命令" class="headerlink" title="ALTER命令"></a>ALTER命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改表名</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`test_lmy`</span>.<span class="string">`new_table`</span> <span class="keyword">RENAME</span> <span class="keyword">TO</span>  <span class="string">`test_lmy`</span>.<span class="string">`cars`</span> ;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改表的属性类型：</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`test_lmy`</span>.<span class="string">`cars`</span> </span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`name`</span> <span class="string">`name`</span> <span class="built_in">VARCHAR</span>(<span class="number">255</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="string">'utf8'</span> <span class="keyword">COLLATE</span> <span class="string">'utf8_unicode_ci'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> ,</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`brand`</span> <span class="string">`brand`</span> <span class="built_in">VARCHAR</span>(<span class="number">255</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="string">'utf8'</span> <span class="keyword">COLLATE</span> <span class="string">'utf8_unicode_ci'</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> ,</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`price`</span> <span class="string">`price`</span> <span class="built_in">FLOAT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> ,</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`oil`</span> <span class="string">`oil`</span> <span class="built_in">FLOAT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> ,</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`score`</span> <span class="string">`score`</span> <span class="built_in">FLOAT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="改数据-UPDATE-…-SET-…"><a href="#改数据-UPDATE-…-SET-…" class="headerlink" title="改数据 UPDATE … SET …"></a>改数据 UPDATE … SET …</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> field1=<span class="keyword">new</span>-value1, field2=<span class="keyword">new</span>-value2</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"><span class="comment"># 表cars中，价格60以下的改为华晨宝马</span></span><br><span class="line"><span class="keyword">update</span> cars <span class="keyword">set</span> brand=<span class="string">'华晨宝马'</span> <span class="keyword">where</span> price&lt;<span class="number">60</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据-DELETE-FROM"><a href="#删除数据-DELETE-FROM" class="headerlink" title="删除数据 DELETE FROM"></a>删除数据 DELETE FROM</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name [<span class="keyword">WHERE</span> Clause]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> cars <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'宝马1系'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LIKE-子句"><a href="#LIKE-子句" class="headerlink" title="LIKE 子句"></a>LIKE 子句</h3><p><a href="http://www.runoob.com/mysql/mysql-like-clause.html" target="_blank" rel="noopener">概念参考</a></p>
+<p>用来进行条件匹配，%表示任意字符，不加时效果等同于等号（=）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"><span class="comment"># 选出包含x的车型和价格，（宝马x表示越野车）</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>,price <span class="keyword">from</span> cars <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%x%'</span>;</span><br><span class="line">+<span class="comment">----------+-------+</span></span><br><span class="line">| name     | price |</span><br><span class="line">+<span class="comment">----------+-------+</span></span><br><span class="line">| 宝马x3   | 38.88 |</span><br><span class="line">| 宝马x5   | 72.88 |</span><br><span class="line">+<span class="comment">----------+-------+</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="连接的使用-JOIN"><a href="#连接的使用-JOIN" class="headerlink" title="连接的使用 JOIN"></a>连接的使用 JOIN</h3><p><a href="http://www.runoob.com/mysql/mysql-join.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/29/MySQL%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" data-id="ck7mkb42g000sayvhcdby5a6u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/09/CodeWar-Python-kyu8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CodeWar Python kyu8 小结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/19/XPath%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">XPath语法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeWars/" rel="tag">CodeWars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetpack/" rel="tag">Jetpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Challenge/" rel="tag">Python Challenge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">Python数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" rel="tag">算法训练</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BA%AA/" rel="tag">面纪</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/CodeWars/" style="font-size: 10px;">CodeWars</a> <a href="/tags/Design-Pattern/" style="font-size: 15px;">Design Pattern</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 11.67px;">Java</a> <a href="/tags/Jetpack/" style="font-size: 13.33px;">Jetpack</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Python-Challenge/" style="font-size: 18.33px;">Python Challenge</a> <a href="/tags/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 16.67px;">Python数据分析</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">算法训练</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E9%9D%A2%E7%BA%AA/" style="font-size: 11.67px;">面纪</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/17/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC2%E5%91%A8/">算法训练-第2周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/07/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%AC%AC1%E5%91%A8/">算法训练-第1周</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Activity%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F/">Activity四种启动模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Java%E5%86%85%E9%83%A8%E7%B1%BB/">Java内部类和静态内部类</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/12/%E5%8F%8D%E7%BC%96%E8%AF%91-%E7%BC%96%E8%AF%91/">反编译&amp;重新编译</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
