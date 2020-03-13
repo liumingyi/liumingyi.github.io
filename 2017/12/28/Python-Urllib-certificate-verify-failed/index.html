@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="学习Python来到 PC level4. 使用Urllib. 写的第一段代码就error了. 1urllib.error.URLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777)&gt;  Let’s google … Bingo: https:&#x2F;&#x2F;www">
+    <meta name="description" content="学习Python来到 PC level4. 使用Urllib. 写的第一段代码就error了. urllib.error.URLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777)&gt;  Let’s google … Bingo: https:&#x2F;&#x2F;www.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Urllib certificate verify failed">
 <meta property="og:url" content="https://www.liumingyi.top/2017/12/28/Python-Urllib-certificate-verify-failed/index.html">
 <meta property="og:site_name" content="Solar">
-<meta property="og:description" content="学习Python来到 PC level4. 使用Urllib. 写的第一段代码就error了. 1urllib.error.URLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777)&gt;  Let’s google … Bingo: https:&#x2F;&#x2F;www">
+<meta property="og:description" content="学习Python来到 PC level4. 使用Urllib. 写的第一段代码就error了. urllib.error.URLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777)&gt;  Let’s google … Bingo: https:&#x2F;&#x2F;www.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-12-28T06:21:08.000Z">
 <meta property="article:modified_time" content="2017-12-28T06:28:14.000Z">
@@ -185,7 +185,7 @@
     <p>学习Python来到 PC level4.</p>
 <p>使用Urllib.</p>
 <p>写的第一段代码就error了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib.error.URLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777)&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">urllib</span><span class="hljs-selector-class">.error</span><span class="hljs-selector-class">.URLError</span>: &lt;<span class="hljs-selector-tag">urlopen</span> <span class="hljs-selector-tag">error</span> <span class="hljs-selector-attr">[SSL: CERTIFICATE_VERIFY_FAILED]</span> <span class="hljs-selector-tag">certificate</span> <span class="hljs-selector-tag">verify</span> <span class="hljs-selector-tag">failed</span> (_<span class="hljs-selector-tag">ssl</span><span class="hljs-selector-class">.c</span><span class="hljs-selector-pseudo">:777)</span>&gt;<br></code></pre></td></tr></table></figure>
 
 <p>Let’s google …</p>
 <p>Bingo: <a href="">https://www.python.org/dev/peps/pep-0476/</a></p>
@@ -193,12 +193,12 @@
 <ul>
 <li>针对单个connection</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># This restores the same behavior as before.</span></span><br><span class="line">context = ssl._create_unverified_context()</span><br><span class="line">urllib.urlopen(<span class="string">"https://no-valid-cert"</span>, context=context)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> ssl<br><br><span class="hljs-comment"># This restores the same behavior as before.</span><br>context = ssl._create_unverified_context()<br>urllib.urlopen(<span class="hljs-string">"https://no-valid-cert"</span>, context=context)<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>全局禁用</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    _create_unverified_https_context = ssl._create_unverified_context</span><br><span class="line"><span class="keyword">except</span> AttributeError:</span><br><span class="line">    <span class="comment"># Legacy Python that doesn't verify HTTPS certificates by default</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># Handle target environment that doesn't support HTTPS verification</span></span><br><span class="line">    ssl._create_default_https_context = _create_unverified_https_context</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> ssl<br><br><span class="hljs-keyword">try</span>:<br>    _create_unverified_https_context = ssl._create_unverified_context<br><span class="hljs-keyword">except</span> AttributeError:<br>    <span class="hljs-comment"># Legacy Python that doesn't verify HTTPS certificates by default</span><br>    <span class="hljs-keyword">pass</span><br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-comment"># Handle target environment that doesn't support HTTPS verification</span><br>    ssl._create_default_https_context = _create_unverified_https_context<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>That’s it</p>

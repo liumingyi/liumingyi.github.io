@@ -200,11 +200,11 @@
 <p><img src="http://wx3.sinaimg.cn/mw690/6eba256bgy1fveout9cxqj20k30ak75e.jpg" alt="从HTML文件中提取颜色代码"></p>
 <blockquote>
 <p>html 是lxml中的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html </span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> html <br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>之后，把颜色写入文件备用，取色过程就结束了。</p>
 <h3 id="将颜色绘制出来"><a href="#将颜色绘制出来" class="headerlink" title="将颜色绘制出来"></a>将颜色绘制出来</h3><p>这就涉及到Python GUI的知识了，这里我使用的是 tkinter</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">form tkinter <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">form tkinter <span class="hljs-keyword">import</span> *<br></code></pre></td></tr></table></figure>
 
 <p>首先配置一下主窗口和画布</p>
 <p><img src="http://wx4.sinaimg.cn/mw690/6eba256bgy1fvep79j25oj20e4064dgr.jpg" alt="初始化窗口和画布"></p>
@@ -214,51 +214,51 @@
 <p>It has an associated Tcl interpreter.</p>
 <p>大意就是：窗口 ：）</p>
 <p>另外要显示出来，需要加上</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root.mainloop() </span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">root.mainloop() <br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>画布尺寸写死了，每一格的大小也写死了…</p>
 <p>画格子：</p>
 <p><img src="http://wx2.sinaimg.cn/mw690/6eba256bgy1fvepe851q4j20va04lq3h.jpg" alt="绘制颜色格子"></p>
 <p>各种乘法是计算格子的位置。</p>
 <p><strong>create_rectangle</strong> 方法中有两个参数 <strong>fill=color</strong> 和 <strong>tag=color</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color 是当前的颜色</span><br><span class="line">fill&#x3D;color 表示用此颜色填充方格</span><br><span class="line">tag&#x3D;color 设置一个Tag，值就是颜色代码。目的是为了传递颜色代码，供点击时使用。</span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="code"><pre><code class="hljs processing"><span class="hljs-built_in">color</span> 是当前的颜色<br><span class="hljs-built_in">fill</span>=<span class="hljs-built_in">color</span> 表示用此颜色填充方格<br>tag=<span class="hljs-built_in">color</span> 设置一个Tag，值就是颜色代码。目的是为了传递颜色代码，供点击时使用。<br></code></pre></td></tr></table></figure>
 
 <p><strong>tag_bind()</strong> 这个方法是用来实现点击事件，selectColor 就是点击时调用的方法。</p>
 <p><img src="http://wx3.sinaimg.cn/mw690/6eba256bgy1fvepm87xwbj20es0473z0.jpg" alt="点击"></p>
 <blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root.clipboard_clear() 清空剪贴板（Tk的） </span><br><span class="line">root.clipboard_append(cell_color) 将颜色代码加入剪贴板 </span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">root.clipboard_clear() 清空剪贴板（Tk的） <br>root.clipboard_append(cell_color) 将颜色代码加入剪贴板 <br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>到此，功能便完成了，挺简单也挺实用的小工具，方便自己选颜色。</p>
 <h3 id="将Python脚本转换为可执行的-app文件-（Mac）"><a href="#将Python脚本转换为可执行的-app文件-（Mac）" class="headerlink" title="将Python脚本转换为可执行的.app文件 （Mac）"></a>将Python脚本转换为可执行的.app文件 （Mac）</h3><p>使用 py2app 将Python脚本转为 .app应用</p>
 <blockquote>
 <p>脚本名为：ColorGrid.py ，打开Terminal</p>
 </blockquote>
-<h4 id="1-安装py2app"><a href="#1-安装py2app" class="headerlink" title="1.安装py2app"></a>1.安装py2app</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install py2app</span><br></pre></td></tr></table></figure>
+<h4 id="1-安装py2app"><a href="#1-安装py2app" class="headerlink" title="1.安装py2app"></a>1.安装py2app</h4><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> py2app<br></code></pre></td></tr></table></figure>
 
-<h4 id="2-创建-setup-py-文件"><a href="#2-创建-setup-py-文件" class="headerlink" title="2.创建 setup.py 文件"></a>2.创建 setup.py 文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py2applet --make-setup ColorGrid.py</span><br></pre></td></tr></table></figure>
+<h4 id="2-创建-setup-py-文件"><a href="#2-创建-setup-py-文件" class="headerlink" title="2.创建 setup.py 文件"></a>2.创建 setup.py 文件</h4><figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml">py2applet --make-setup <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">ColorGrid</span>.</span></span>py<br></code></pre></td></tr></table></figure>
 
 <p>在setup.py中，OPTIONS = {} 中填入 ‘argv_emulation’: True</p>
 <p>如果有使用其他的数据文件，要在 DATA_FILES = [] 中填入。</p>
 <p>本例中使用了一个文件（color_list.txt）来读写颜色。所以如图：</p>
 <p><img src="http://wx2.sinaimg.cn/mw690/6eba256bgy1fveu1b8lzhj209603eaa5.jpg" alt="setup.py"></p>
-<h4 id="3-测一测"><a href="#3-测一测" class="headerlink" title="3.测一测"></a>3.测一测</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 setup.py py2app -A</span><br></pre></td></tr></table></figure>
+<h4 id="3-测一测"><a href="#3-测一测" class="headerlink" title="3.测一测"></a>3.测一测</h4><figure class="highlight vim"><table><tr><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python3</span> setup.<span class="hljs-keyword">py</span> py2app -A<br></code></pre></td></tr></table></figure>
 
 <p>-A 表示 alias mode，简单的理解就是测试，这个并没有生成一个独立的可运行文件，而是依赖了本机的环境。</p>
 <p>此命令后会生成 build/ ，dist/ 两个文件夹。</p>
 <p>运行一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open .&#x2F;dist&#x2F;ColorGrid.app&#x2F;Contents&#x2F;MacOS&#x2F;ColorGrid</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">open</span> ./dist/<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">ColorGrid</span>.</span></span>app/Contents/MacOS/ColorGrid<br></code></pre></td></tr></table></figure>
 
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -a dist&#x2F;ColorGrid.app</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">open</span> -a dist/<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">ColorGrid</span>.</span></span>app<br></code></pre></td></tr></table></figure>
 
 <p>看看运行是否成功，不成功的话，可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -a Console</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino"><span class="hljs-built_in">open</span> -a <span class="hljs-built_in">Console</span><br></code></pre></td></tr></table></figure>
 <p>开打Console，看看错误信息。 （虽然我是看不大懂 ：(</p>
 <h4 id="4-正式打包"><a href="#4-正式打包" class="headerlink" title="4.正式打包"></a>4.正式打包</h4><p>其实就是不加 -A。 ：）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py py2app</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> setup.<span class="hljs-keyword">py</span> py2app<br></code></pre></td></tr></table></figure>
 
 <p>记得要先删除 build/ 和 dist/ </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf build dist</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">rm</span> -rf <span class="hljs-keyword">build </span>dist<br></code></pre></td></tr></table></figure>
 
 <p>然后在生成的 <strong>dist/</strong> 文件夹下，双击 ColorGrid.app 即可运行。</p>
 <p>这已经是一个独立的应用，所以可以把它发给你的朋友们使用了。</p>
@@ -270,7 +270,7 @@
 <p>说是 py2app 0.14 的问题，换成 0.13 就好了。</p>
 <p>而此时（2018/9/17）最新版本为 0.17 ，于是我从0.17往下尝试一直到 0.13 ，才成功。 :（</p>
 <p>I don’t know why ? ??</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 指定安装版本</span><br><span class="line">pip install py2app&#x3D;&#x3D;0.13 </span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># 指定安装版本</span><br>pip install <span class="hljs-attribute">py2app</span>==0.13 <br></code></pre></td></tr></table></figure>
 </blockquote>
 <p><a href="https://github.com/liumingyi/ColorPick" target="_blank" rel="noopener">项目源码</a></p>
 

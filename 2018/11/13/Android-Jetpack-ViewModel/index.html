@@ -195,7 +195,7 @@
 <li><p>创建一个 MyViewModel ，继承自ViewModel抽象类。</p>
 </li>
 <li><p>在Activity 或者 Fragment 中获取 ViewModel。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ViewModelProviders.of(<span class="keyword">this</span>).get(MyViewModel<span class="class">.<span class="keyword">class</span>)</span>;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">ViewModelProviders.of(<span class="hljs-keyword">this</span>).get(MyViewModel<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;<br></code></pre></td></tr></table></figure>
 
 <p><strong>一定</strong>要像上面这样获取ViewModel，因为这样才会在当前Activity被销毁重建后，将新的 Activiy 和之前的 ViewModel 重新关联。</p>
 <p><strong>ViewModelProviders.of(this)</strong> 返回一个 ViewModelProvider。</p>
