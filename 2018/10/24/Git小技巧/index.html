@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="参考资料-Git教程参考资料-10个Git小技巧 1. 合并多个commitgit rebase -i HEAD~[number_of_commits] 把要合并的标记为squash （-i 表示交互）  这个是我用的最多的，而且还老是记不住的。  2. 查看仓库历史git log --all --graph --pretty&#x3D;format:&#39;%Cred%h%Creset -%C(yellow)%">
+    <meta name="description" content="参考资料-Git教程参考资料-10个Git小技巧 1. 合并多个commitgit rebase -i HEAD~[number_of_commits] 把要合并的标记为squash （-i 表示交互） 2. 查看仓库历史git log --all --graph --pretty&#x3D;format:&#39;%Cred%h%Creset -%C(yellow)%d %Creset%s %Cgreen(%cr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git小技巧">
 <meta property="og:url" content="https://www.liumingyi.top/2018/10/24/Git%E5%B0%8F%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="Solar">
-<meta property="og:description" content="参考资料-Git教程参考资料-10个Git小技巧 1. 合并多个commitgit rebase -i HEAD~[number_of_commits] 把要合并的标记为squash （-i 表示交互）  这个是我用的最多的，而且还老是记不住的。  2. 查看仓库历史git log --all --graph --pretty&#x3D;format:&#39;%Cred%h%Creset -%C(yellow)%">
+<meta property="og:description" content="参考资料-Git教程参考资料-10个Git小技巧 1. 合并多个commitgit rebase -i HEAD~[number_of_commits] 把要合并的标记为squash （-i 表示交互） 2. 查看仓库历史git log --all --graph --pretty&#x3D;format:&#39;%Cred%h%Creset -%C(yellow)%d %Creset%s %Cgreen(%cr">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-10-24T08:34:55.000Z">
-<meta property="article:modified_time" content="2019-06-30T15:33:52.000Z">
+<meta property="article:modified_time" content="2020-03-15T13:13:12.993Z">
 <meta property="article:author" content="Mingyi">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -104,8 +104,6 @@
           <li><a href="/about/">About</a></li>
          
           <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="https://github.com/liumingyi" target="_blank" rel="noopener">Projects</a></li>
         
       </ul>
     </span>
@@ -143,7 +141,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-合并多个commit"><span class="toc-number">1.</span> <span class="toc-text">1. 合并多个commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看仓库历史"><span class="toc-number">2.</span> <span class="toc-text">2. 查看仓库历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-查看commit历史"><span class="toc-number">3.</span> <span class="toc-text">3. 查看commit历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-暂存文件修改"><span class="toc-number">4.</span> <span class="toc-text">4. 暂存文件修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Cherry-Pick-（最优雅的命令）"><span class="toc-number">5.</span> <span class="toc-text">5. Cherry Pick （最优雅的命令）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-分支"><span class="toc-number">6.</span> <span class="toc-text">6. 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-打标签"><span class="toc-number">7.</span> <span class="toc-text">7. 打标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-补丁Patch"><span class="toc-number">8.</span> <span class="toc-text">8. 补丁Patch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-Help"><span class="toc-number">9.</span> <span class="toc-text">9. Help</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-好习惯"><span class="toc-number">10.</span> <span class="toc-text">10. 好习惯</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-合并多个commit"><span class="toc-number">1.</span> <span class="toc-text">1. 合并多个commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看仓库历史"><span class="toc-number">2.</span> <span class="toc-text">2. 查看仓库历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-查看commit历史"><span class="toc-number">3.</span> <span class="toc-text">3. 查看commit历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-暂存文件修改"><span class="toc-number">4.</span> <span class="toc-text">4. 暂存文件修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Cherry-Pick-（最优雅的命令）"><span class="toc-number">5.</span> <span class="toc-text">5. Cherry Pick （最优雅的命令）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-分支"><span class="toc-number">6.</span> <span class="toc-text">6. 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-版本回滚-撤销已经提交的commit"><span class="toc-number">7.</span> <span class="toc-text">7. 版本回滚, 撤销已经提交的commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-打标签"><span class="toc-number">8.</span> <span class="toc-text">8. 打标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-补丁Patch"><span class="toc-number">9.</span> <span class="toc-text">9. 补丁Patch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Help"><span class="toc-number">10.</span> <span class="toc-text">Help</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#好习惯"><span class="toc-number">11.</span> <span class="toc-text">好习惯</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -185,9 +183,6 @@
     <p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">参考资料-Git教程</a><br><a href="http://www.sitepoint.com/10-tips-git-next-level/" target="_blank" rel="noopener">参考资料-10个Git小技巧</a></p>
 <h3 id="1-合并多个commit"><a href="#1-合并多个commit" class="headerlink" title="1. 合并多个commit"></a>1. 合并多个commit</h3><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">git</span> <span class="hljs-selector-tag">rebase</span> <span class="hljs-selector-tag">-i</span> <span class="hljs-selector-tag">HEAD</span>~<span class="hljs-selector-attr">[number_of_commits]</span><br></code></pre></td></tr></table></figure>
 <p>把要合并的标记为squash （-i 表示交互）</p>
-<blockquote>
-<p>这个是我用的最多的，而且还老是记不住的。</p>
-</blockquote>
 <h3 id="2-查看仓库历史"><a href="#2-查看仓库历史" class="headerlink" title="2. 查看仓库历史"></a>2. 查看仓库历史</h3><figure class="highlight cos"><table><tr><td class="code"><pre><code class="hljs cos">git log --all --graph --pretty=format:'<span class="hljs-built_in">%Cred</span><span class="hljs-built_in">%h</span><span class="hljs-built_in">%Creset</span> -<span class="hljs-built_in">%C</span>(yellow)<span class="hljs-built_in">%d</span> <span class="hljs-built_in">%Creset</span><span class="hljs-built_in">%s</span> <span class="hljs-built_in">%Cgreen</span>(<span class="hljs-built_in">%cr</span>) <span class="hljs-built_in">%C</span>(bold blue)&lt;<span class="hljs-built_in">%an</span>&gt;<span class="hljs-built_in">%Creset</span>' --abbrev-commit --<br></code></pre></td></tr></table></figure>
 
 <p>–all 显示所有分支的历史记录</p>
@@ -195,6 +190,9 @@
 <p>–oneline 以一行显示</p>
 <h3 id="3-查看commit历史"><a href="#3-查看commit历史" class="headerlink" title="3. 查看commit历史"></a>3. 查看commit历史</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">git <span class="hljs-built_in">ref</span>log<br></code></pre></td></tr></table></figure>
 <p>在reset –hard xxxx 以后能查看到 <strong>git log</strong> 看不到的 commit</p>
+<p>重新填写commit注释</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">commit</span> <span class="hljs-comment">--amend</span><br></code></pre></td></tr></table></figure>
+
 <h3 id="4-暂存文件修改"><a href="#4-暂存文件修改" class="headerlink" title="4. 暂存文件修改"></a>4. 暂存文件修改</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git stash</span><br></code></pre></td></tr></table></figure>
 <p>将修改的内容暂存起来，可以通过<strong>git stash list</strong>查看当前暂存了几个修改。</p>
 <p>工作现场恢复，有两个办法：</p>
@@ -210,7 +208,25 @@
 </blockquote>
 <h3 id="6-分支"><a href="#6-分支" class="headerlink" title="6. 分支"></a>6. 分支</h3><figure class="highlight properties"><table><tr><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">git</span> <span class="hljs-string">branch &lt;name&gt; 创建分支</span><br><span class="hljs-attr">git</span> <span class="hljs-string">checkout &lt;name&gt; 切换分支</span><br><br><span class="hljs-attr">git</span> <span class="hljs-string">branch 查看本地所有分支</span><br><span class="hljs-attr">git</span> <span class="hljs-string">branch -a 查看所有远程分支</span><br><span class="hljs-attr">git</span> <span class="hljs-string">branch -vv 查看本地分支和与之关联的远程分支</span><br><br><span class="hljs-attr">git</span> <span class="hljs-string">merge &lt;name&gt; 将当前分支和name分支合并</span><br><span class="hljs-attr">git</span> <span class="hljs-string">branch -d &lt;name&gt; 删除分支, -D 大写表示强行删除</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="7-打标签"><a href="#7-打标签" class="headerlink" title="7. 打标签"></a>7. 打标签</h3><figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">tag</span> <span class="hljs-title">查看所有标签</span><br><span class="hljs-title">git</span> <span class="hljs-keyword">tag</span> <span class="hljs-title">&lt;name</span>&gt; 新打一个标签<br></code></pre></td></tr></table></figure>
+<hr>
+<p>把本地分支与远程origin的分支进行关联处理(通过 –set-upstream-to 命令)</p>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><code class="hljs delphi">git branch --<span class="hljs-keyword">set</span>-upstream-<span class="hljs-keyword">to</span>=origin/add_orderdescz<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>删除本地分支</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">git</span> <span class="hljs-keyword">branch </span>-d xxxxx<br>-D 强制删除<br></code></pre></td></tr></table></figure>
+<p>删除远程分支</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">git push &lt;remote_name&gt; --delete &lt;branch_name&gt;<br>git push &lt;remote_name&gt; :&lt;branch_name&gt;<br>Note that <span class="hljs-keyword">in</span> most cases the remote name is origin<br></code></pre></td></tr></table></figure>
+<hr>
+<p>创建远程分支</p>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><code class="hljs delphi">git push &lt;remote-<span class="hljs-keyword">name</span>&gt; &lt;branch-<span class="hljs-keyword">name</span>&gt;<br>git push &lt;remote-<span class="hljs-keyword">name</span>&gt; &lt;<span class="hljs-keyword">local</span>-branch-<span class="hljs-keyword">name</span>&gt;:&lt;remote-branch-<span class="hljs-keyword">name</span>&gt;<br>&lt;remote-<span class="hljs-keyword">name</span>&gt; <span class="hljs-keyword">is</span> typically origin<br>但是不会将本地分支和远程分支相关联<br><br>所以,可以使用这个:<br>git push --<span class="hljs-keyword">set</span>-upstream &lt;remote-<span class="hljs-keyword">name</span>&gt; &lt;<span class="hljs-keyword">local</span>-branch-<span class="hljs-keyword">name</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="7-版本回滚-撤销已经提交的commit"><a href="#7-版本回滚-撤销已经提交的commit" class="headerlink" title="7. 版本回滚, 撤销已经提交的commit"></a>7. 版本回滚, 撤销已经提交的commit</h3><figure class="highlight dsconfig"><table><tr><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">git </span><span class="hljs-string">reset </span><span class="hljs-built_in">--hard</span> <span class="hljs-string">HASH </span><span class="hljs-comment">#返回到某个节点，不保留修改。</span><br><span class="hljs-string">git </span><span class="hljs-string">reset </span><span class="hljs-built_in">--soft</span> <span class="hljs-string">HASH </span><span class="hljs-comment">#返回到某个节点。保留修改</span><br></code></pre></td></tr></table></figure>
+
+<p>撤销已经add的文件</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql">所有文件<br>git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> .<br>单个文件<br>git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> -filename<br></code></pre></td></tr></table></figure>
+
+<h3 id="8-打标签"><a href="#8-打标签" class="headerlink" title="8. 打标签"></a>8. 打标签</h3><figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">tag</span> <span class="hljs-title">查看所有标签</span><br><span class="hljs-title">git</span> <span class="hljs-keyword">tag</span> <span class="hljs-title">&lt;name</span>&gt; 新打一个标签<br></code></pre></td></tr></table></figure>
 <p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
 <figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">tag</span> <span class="hljs-title">-a</span> v0.<span class="hljs-number">1</span> -m <span class="hljs-string">"version 0.1 released"</span> <span class="hljs-number">3628164</span><br></code></pre></td></tr></table></figure>
 <p>用命令git show <tagname>可以看到说明文字</p>
@@ -222,13 +238,14 @@
 <p>用命令git show <tagname>可以看到PGP签名信息。</p>
 <p>标签操作:</p>
 <figure class="highlight elixir"><table><tr><td class="code"><pre><code class="hljs elixir">git push origin &lt;tagname&gt;可以推送一个本地标签<br>git push origin --tags可以推送全部未推送过的本地标签<br>git tag -d &lt;tagname&gt;可以删除一个本地标签<br>git push origin <span class="hljs-symbol">:refs/tags/&lt;tagname&gt;</span>可以删除一个远程标签<br></code></pre></td></tr></table></figure>
-<h3 id="8-补丁Patch"><a href="#8-补丁Patch" class="headerlink" title="8. 补丁Patch"></a>8. 补丁Patch</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">git format-patch <span class="hljs-number">-1</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="9-补丁Patch"><a href="#9-补丁Patch" class="headerlink" title="9. 补丁Patch"></a>9. 补丁Patch</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">git format-patch <span class="hljs-number">-1</span><br></code></pre></td></tr></table></figure>
 <p>-1表示以HEAD指针为基准的几个commit提交打成patch,会在当前目录下生成patch</p>
 <figure class="highlight glsl"><table><tr><td class="code"><pre><code class="hljs glsl">git apply <span class="hljs-number">0001</span>-test-<span class="hljs-keyword">patch</span>.<span class="hljs-keyword">patch</span><br></code></pre></td></tr></table></figure>
 <p>将patch合并到当前分支</p>
-<h3 id="9-Help"><a href="#9-Help" class="headerlink" title="9. Help"></a>9. Help</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">help</span> &lt;<span class="hljs-built_in">command</span>&gt;<br></code></pre></td></tr></table></figure>
-<p>我为什么会把这一条列出来？ ?_? （这篇博客是2年前写的，今天无意中电脑里翻到了…）</p>
-<h3 id="10-好习惯"><a href="#10-好习惯" class="headerlink" title="10. 好习惯"></a>10. 好习惯</h3><ul>
+<h3 id="Help"><a href="#Help" class="headerlink" title="Help"></a>Help</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">help</span> &lt;<span class="hljs-built_in">command</span>&gt;<br></code></pre></td></tr></table></figure>
+<p>我为什么会把这一条列出来？ ?_? （这篇博客是2015的，今天无意中电脑里翻到了…）</p>
+<h3 id="好习惯"><a href="#好习惯" class="headerlink" title="好习惯"></a>好习惯</h3><ul>
 <li><p>COMMIT RELATED CHANGES</p>
 </li>
 <li><p>TEST CODE BEFORE YOU COMMIT</p>
@@ -250,8 +267,8 @@
 <li><p>FREE ONLINE RESOURCES</p>
 </li>
 </ul>
-<p><a href="http://www.git-tower.com/learn" target="_blank" rel="noopener">http://www.git-tower.com/learn</a> </p>
-<p><a href="http://rogerdudler.github.io/git-guide/" target="_blank" rel="noopener">http://rogerdudler.github.io/git-guide/</a> </p>
+<p><a href="http://www.git-tower.com/learn" target="_blank" rel="noopener">http://www.git-tower.com/learn</a></p>
+<p><a href="http://rogerdudler.github.io/git-guide/" target="_blank" rel="noopener">http://rogerdudler.github.io/git-guide/</a></p>
 <p><a href="http://www.git-scm.org/" target="_blank" rel="noopener">http://www.git-scm.org/</a></p>
 
   </div>
@@ -272,14 +289,12 @@
           <li><a href="/about/">About</a></li>
          
           <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="https://github.com/liumingyi" target="_blank" rel="noopener">Projects</a></li>
         
       </ul>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-合并多个commit"><span class="toc-number">1.</span> <span class="toc-text">1. 合并多个commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看仓库历史"><span class="toc-number">2.</span> <span class="toc-text">2. 查看仓库历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-查看commit历史"><span class="toc-number">3.</span> <span class="toc-text">3. 查看commit历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-暂存文件修改"><span class="toc-number">4.</span> <span class="toc-text">4. 暂存文件修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Cherry-Pick-（最优雅的命令）"><span class="toc-number">5.</span> <span class="toc-text">5. Cherry Pick （最优雅的命令）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-分支"><span class="toc-number">6.</span> <span class="toc-text">6. 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-打标签"><span class="toc-number">7.</span> <span class="toc-text">7. 打标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-补丁Patch"><span class="toc-number">8.</span> <span class="toc-text">8. 补丁Patch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-Help"><span class="toc-number">9.</span> <span class="toc-text">9. Help</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-好习惯"><span class="toc-number">10.</span> <span class="toc-text">10. 好习惯</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-合并多个commit"><span class="toc-number">1.</span> <span class="toc-text">1. 合并多个commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看仓库历史"><span class="toc-number">2.</span> <span class="toc-text">2. 查看仓库历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-查看commit历史"><span class="toc-number">3.</span> <span class="toc-text">3. 查看commit历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-暂存文件修改"><span class="toc-number">4.</span> <span class="toc-text">4. 暂存文件修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Cherry-Pick-（最优雅的命令）"><span class="toc-number">5.</span> <span class="toc-text">5. Cherry Pick （最优雅的命令）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-分支"><span class="toc-number">6.</span> <span class="toc-text">6. 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-版本回滚-撤销已经提交的commit"><span class="toc-number">7.</span> <span class="toc-text">7. 版本回滚, 撤销已经提交的commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-打标签"><span class="toc-number">8.</span> <span class="toc-text">8. 打标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-补丁Patch"><span class="toc-number">9.</span> <span class="toc-text">9. 补丁Patch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Help"><span class="toc-number">10.</span> <span class="toc-text">Help</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#好习惯"><span class="toc-number">11.</span> <span class="toc-text">好习惯</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -324,8 +339,6 @@
           <li><a href="/about/">About</a></li>
          
           <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="https://github.com/liumingyi" target="_blank" rel="noopener">Projects</a></li>
         
       </ul>
     </nav>
